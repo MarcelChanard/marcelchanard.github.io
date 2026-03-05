@@ -1,79 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Marcel Chanard</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marcel Chanard</title>
+  <meta name="description" content="Portfolio — Marcel Chanard, étudiante en BUT GEA (GC2F)." />
+  <meta name="robots" content="noindex, nofollow" />
 
-<style>
-body{
-font-family: Arial, Helvetica, sans-serif;
-background:white;
-color:#111;
-max-width:800px;
-margin:auto;
-padding:60px 20px;
-line-height:1.6;
-}
+  <style>
+    :root{
+      --bg:#fff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#e2e8f0;
+      --max: 920px;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); }
+    body{
+      font: 16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a{ color:inherit; text-decoration:none; border-bottom:1px solid transparent; }
+    a:hover{ border-bottom-color: var(--line); }
 
-h1{
-font-size:40px;
-margin-bottom:5px;
-}
+    .wrap{ max-width:var(--max); margin:0 auto; padding:72px 20px 56px; }
+    header{ display:flex; flex-direction:column; gap:14px; margin-bottom:40px; }
+    h1{ font-size:42px; line-height:1.1; margin:0; letter-spacing:-0.02em; }
+    .subtitle{ margin:0; color:var(--muted); }
 
-h2{
-margin-top:50px;
-font-size:22px;
-border-bottom:1px solid #eee;
-padding-bottom:5px;
-}
+    .nav{
+      display:flex; gap:16px; flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
+    }
 
-.subtitle{
-color:#666;
-margin-bottom:40px;
-}
-</style>
+    section{
+      padding:32px 0;
+      border-top:1px solid var(--line);
+    }
+    h2{
+      font-size:14px;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin:0 0 12px;
+    }
+    p{ margin:0 0 10px; }
+    ul{ margin:10px 0 0; padding-left:18px; }
+    li{ margin:6px 0; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+    }
+    @media (min-width: 820px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .card{
+      padding:16px 16px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+    }
+    .small{ font-size:14px; color:var(--muted); }
+    .pillrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .pill{
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding-top:20px;
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+  </style>
 </head>
 
 <body>
+  <main class="wrap">
+    <header>
+      <div>
+        <h1>Marcel Chanard</h1>
+        <p class="subtitle">Étudiante en BUT GEA — parcours GC2F</p>
+      </div>
 
-<h1>Marcel Chanard</h1>
-<p class="subtitle">Étudiante en BUT GEA — parcours GC2F</p>
+      <nav class="nav" aria-label="Navigation">
+        <a href="#apropos">À propos</a>
+        <a href="#formation">Formation</a>
+        <a href="#experience">Expérience</a>
+        <a href="#competences">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<h2>À propos</h2>
-<p>
-Étudiante en BUT Gestion des Entreprises et des Administrations.
-Je poursuis le parcours Gestion Comptable, Fiscale et Financière (GC2F).
-Je m’intéresse à l’organisation des données et aux outils de gestion.
-</p>
+    <section id="apropos">
+      <h2>À propos</h2>
+      <p>
+        Étudiante en première année de BUT Gestion des Entreprises et des Administrations (GEA),
+        je poursuis le parcours Gestion Comptable, Fiscale et Financière (GC2F).
+      </p>
+      <p>
+        Je m’intéresse à l’organisation des données, aux outils de gestion et à l’analyse financière.
+        J’aime produire des supports clairs, structurés et utilisables au quotidien.
+      </p>
+    </section>
 
-<h2>Formation</h2>
-<p>
-BUT Gestion des Entreprises et des Administrations<br>
-Parcours GC2F — Gestion Comptable, Fiscale et Financière
-</p>
+    <section id="formation">
+      <h2>Formation</h2>
+      <div class="card">
+        <p><strong>BUT Gestion des Entreprises et des Administrations (GEA)</strong></p>
+        <p class="small">Parcours : Gestion Comptable, Fiscale et Financière (GC2F) — 1ère année</p>
+      </div>
+    </section>
 
-<h2>Expérience</h2>
-<p>
-<strong>Stage — Agence Laforêt</strong><br><br>
+    <section id="experience">
+      <h2>Expérience</h2>
+      <div class="card">
+        <p><strong>Stage — Agence immobilière Laforêt</strong></p>
+        <ul>
+          <li>Création de tableaux de suivi pour l’agence et les collaborateurs, à destination de la directrice.</li>
+          <li>Automatisation des tableaux (mise en forme, calculs, synthèses) pour faciliter l’usage au quotidien.</li>
+          <li>Outils actuellement utilisés pour le suivi de l’activité et le pilotage interne.</li>
+        </ul>
+      </div>
+    </section>
 
-Création de tableaux de suivi pour l’agence et les collaborateurs.<br>
-Mise en place d’outils automatisés pour suivre l’activité de l’agence.<br>
-Outils actuellement utilisés par la directrice.
-</p>
+    <section id="competences">
+      <h2>Compétences</h2>
+      <div class="grid">
+        <div class="card">
+          <p><strong>Outils</strong></p>
+          <div class="pillrow">
+            <span class="pill">Excel</span>
+            <span class="pill">Word</span>
+            <span class="pill">PowerPoint</span>
+            <span class="pill">Canva</span>
+          </div>
+        </div>
+        <div class="card">
+          <p><strong>Langues</strong></p>
+          <p class="small">Français — langue maternelle<br/>Anglais — bilingue</p>
+        </div>
+      </div>
+    </section>
 
-<h2>Compétences</h2>
-<p>
-Excel<br>
-Word<br>
-PowerPoint<br>
-Canva
-</p>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p class="small">Remplace ces champs par tes informations.</p>
+        <p>
+          Email : <a href="mailto:mchanard@hotmail.com">mchanard@hotmail.com</a><br/>
+          Téléphone : <a href="tel:+330744529534">0744529534</a><br/>
+          LinkedIn : <a href="https://fr.linkedin.com/in/mchanard" target="_blank" rel="noreferrer">Profil</a>
+        </p>
+      </div>
+    </section>
 
-<h2>Contact</h2>
-<p>
-Email : ton email<br>
-Téléphone : ton téléphone
-</p>
+    <footer>
+      <span>© <span id="y"></span> Marcel Chanard</span>
+      <span class="small">Partagé via lien privé — non indexé</span>
+    </footer>
+  </main>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
