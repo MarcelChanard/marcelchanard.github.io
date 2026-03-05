@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Marcel Chanard — Portfolio</title>
 
 <style>
@@ -14,60 +13,51 @@ font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
 background:#0b0f14;
 color:white;
 scroll-behavior:smooth;
+text-align:center;
 }
 
 section{
-min-height:100vh;
+min-height:90vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:80px 40px;
+padding:60px 30px;
 }
 
 .container{
 max-width:900px;
 width:100%;
+margin:auto;
 }
 
 h1{
-font-size:72px;
-line-height:1.1;
+font-size:80px;
 margin:0;
+line-height:1.1;
 }
 
 h2{
-font-size:52px;
-margin-bottom:30px;
-}
-
-p{
-font-size:22px;
-line-height:1.6;
-color:#b8c0cc;
-}
-
-.hero{
-text-align:center;
+font-size:56px;
+margin-bottom:20px;
 }
 
 .subtitle{
-font-size:28px;
-color:#8fa1b3;
+font-size:34px;
+color:#9fb0c0;
 margin-top:20px;
 }
 
 .portfolio{
-margin-top:15px;
-font-size:22px;
-letter-spacing:2px;
-text-transform:uppercase;
-color:#6b7a8c;
+font-size:26px;
+letter-spacing:3px;
+color:#7f8fa3;
+margin-top:10px;
 }
 
-.scroll{
-margin-top:60px;
-font-size:16px;
-color:#6b7a8c;
+p{
+font-size:26px;
+line-height:1.6;
+color:#b8c0cc;
 }
 
 .card{
@@ -75,29 +65,35 @@ background:#121821;
 padding:40px;
 border-radius:14px;
 border:1px solid rgba(255,255,255,0.08);
-margin-top:30px;
+margin-top:25px;
 }
 
 ul{
-font-size:22px;
+font-size:26px;
+line-height:1.7;
 color:#b8c0cc;
-line-height:1.8;
+list-style:none;
+padding:0;
 }
 
 .button{
 display:inline-block;
-margin-top:20px;
-padding:12px 18px;
-border-radius:8px;
+margin-top:25px;
+padding:14px 22px;
+border-radius:10px;
 background:#1f2a37;
 border:1px solid rgba(255,255,255,0.1);
 color:white;
 text-decoration:none;
-font-size:18px;
+font-size:20px;
 }
 
 .button:hover{
 background:#2a3848;
+}
+
+.contact p{
+margin:10px 0;
 }
 
 </style>
@@ -107,7 +103,8 @@ background:#2a3848;
 
 
 <!-- HERO -->
-<section class="hero">
+
+<section>
 
 <div class="container">
 
@@ -121,17 +118,13 @@ background:#2a3848;
 Portfolio
 </div>
 
-<div class="scroll">
-↓ Scroll pour découvrir
-</div>
-
 </div>
 
 </section>
 
 
 
-<!-- QUI SUIS JE -->
+<!-- QUI SUIS-JE -->
 
 <section>
 
@@ -142,9 +135,9 @@ Portfolio
 <div class="card">
 
 <p>
-Tu pourras écrire ici un texte qui présente ton profil,
-tes intérêts en gestion et analyse financière,
-et ce que tu aimes faire dans ton travail.
+Ajoute ici ton texte de présentation.
+Explique brièvement ton parcours, ce qui t'intéresse dans la gestion,
+et les compétences que tu développes actuellement.
 </p>
 
 </div>
@@ -174,7 +167,6 @@ Parcours Gestion Comptable, Fiscale et Financière (GC2F)
 
 </div>
 
-
 <div class="card">
 
 <p><strong>Compétences</strong></p>
@@ -184,8 +176,8 @@ Parcours Gestion Comptable, Fiscale et Financière (GC2F)
 <li>Word</li>
 <li>PowerPoint</li>
 <li>Canva</li>
-<li>Organisation et suivi de données</li>
 <li>Création de tableaux automatisés</li>
+<li>Organisation et analyse de données</li>
 </ul>
 
 </div>
@@ -211,7 +203,7 @@ Parcours Gestion Comptable, Fiscale et Financière (GC2F)
 <ul>
 <li>Création de tableaux de suivi pour l’agence et les collaborateurs</li>
 <li>Automatisation des tableaux pour simplifier le suivi</li>
-<li>Outils utilisés par la directrice pour le pilotage de l’activité</li>
+<li>Outils utilisés par la directrice pour piloter l’activité</li>
 </ul>
 
 </div>
@@ -230,11 +222,18 @@ Parcours Gestion Comptable, Fiscale et Financière (GC2F)
 
 <h2>Contact</h2>
 
-<div class="card">
+<div class="card contact">
 
-<p>Email : TON_EMAIL</p>
+<p>Email : mchanard@hotmail.com</p>
 
-<p>Téléphone : TON_NUMERO</p>
+<p>Téléphone : 07 44 52 95 34</p>
+
+<p>
+LinkedIn :
+<a href="https://fr.linkedin.com/in/mchanard" target="_blank">
+fr.linkedin.com/in/mchanard
+</a>
+</p>
 
 <a class="button" href="cv.pdf" target="_blank">
 Voir mon CV
