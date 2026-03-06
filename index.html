@@ -1,238 +1,473 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Marcel Chanard — Portfolio</title>
 
 <style>
+:root{
+  --bg:#0b0f14;
+  --panel:#121821;
+  --panel-2:#0f141c;
+  --text:#f4f4f4;
+  --muted:#a7b4c7;
+  --soft:#7f8fa3;
+  --line:rgba(255,255,255,0.08);
+  --button:#1f2a37;
+  --button-hover:#2a3848;
+  --max:1100px;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
-margin:0;
-font-family: system-ui,-apple-system,Helvetica,Arial,sans-serif;
-background:#0b0f14;
-color:white;
-text-align:center;
-}
-
-section{
-padding:70px 20px;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.container{
-max-width:750px;
-margin:auto;
-}
-
-h1{
-font-size:80px;
-margin:0;
-}
-
-h2{
-font-size:48px;
-margin-bottom:20px;
-}
-
-.subtitle{
-font-size:30px;
-color:#9fb0c0;
-margin-top:10px;
-}
-
-.portfolio{
-font-size:20px;
-letter-spacing:2px;
-color:#7f8fa3;
-margin-top:8px;
-}
-
-p{
-font-size:22px;
-line-height:1.6;
-color:#b8c0cc;
-margin:0;
-}
-
-.card{
-background:#121821;
-padding:28px;
-border-radius:12px;
-border:1px solid rgba(255,255,255,0.08);
-margin-top:18px;
-}
-
-ul{
-font-size:22px;
-list-style:none;
-padding:0;
-margin:0;
-color:#b8c0cc;
-}
-
-li{
-margin:6px 0;
-}
-
-.button{
-display:inline-block;
-margin-top:20px;
-padding:12px 20px;
-border-radius:8px;
-background:#1f2a37;
-border:1px solid rgba(255,255,255,0.1);
-color:white;
-text-decoration:none;
-font-size:20px;
-}
-
-.button:hover{
-background:#2a3848;
+  margin:0;
+  font-family:system-ui,-apple-system,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  text-align:center;
 }
 
 a{
-color:#9fb0c0;
-text-decoration:none;
+  color:inherit;
+  text-decoration:none;
 }
 
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  box-sizing:border-box;
+}
+
+.container{
+  width:100%;
+  max-width:var(--max);
+  margin:0 auto;
+}
+
+.hero-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+h1{
+  font-size:clamp(64px, 9vw, 120px);
+  line-height:1.02;
+  margin:0;
+  font-weight:700;
+  letter-spacing:-0.03em;
+}
+
+.subtitle{
+  font-size:clamp(28px, 3.2vw, 54px);
+  color:var(--muted);
+  margin-top:18px;
+}
+
+.portfolio{
+  font-size:clamp(18px, 1.7vw, 28px);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--soft);
+  margin-top:14px;
+}
+
+.hero-grid{
+  margin-top:56px;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:18px;
+}
+
+.hero-box{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:24px 20px;
+  transition:transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.hero-box:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,0.16);
+  background:#16202c;
+}
+
+.hero-box-title{
+  font-size:26px;
+  font-weight:650;
+  margin-bottom:8px;
+}
+
+.hero-box-text{
+  font-size:17px;
+  line-height:1.55;
+  color:var(--muted);
+}
+
+.scroll-down{
+  margin-top:26px;
+  font-size:16px;
+  color:var(--soft);
+}
+
+main{
+  padding:0 20px 80px;
+}
+
+section{
+  padding:48px 0;
+}
+
+.section-card{
+  max-width:920px;
+  margin:0 auto;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:34px 30px;
+}
+
+h2{
+  font-size:clamp(42px, 4.2vw, 64px);
+  line-height:1.08;
+  margin:0 0 18px;
+}
+
+p{
+  font-size:clamp(22px, 2vw, 28px);
+  line-height:1.7;
+  color:var(--muted);
+  margin:0;
+}
+
+.text-block{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:10px;
+}
+
+.skill-card{
+  background:var(--panel-2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px 20px;
+  text-align:left;
+}
+
+.skill-head{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:12px;
+  text-align:center;
+}
+
+.skill-head img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+}
+
+.skill-title{
+  font-size:26px;
+  font-weight:650;
+}
+
+.skill-text{
+  font-size:20px;
+  line-height:1.65;
+  color:var(--muted);
+  text-align:center;
+}
+
+.exp-list{
+  list-style:none;
+  padding:0;
+  margin:18px 0 0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.exp-list li{
+  font-size:22px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.contact-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  align-items:center;
+}
+
+.contact-list a,
+.contact-list div{
+  font-size:24px;
+  color:var(--muted);
+}
+
+.button{
+  display:inline-block;
+  margin-top:24px;
+  padding:14px 22px;
+  border-radius:12px;
+  background:var(--button);
+  border:1px solid var(--line);
+  color:white;
+  font-size:20px;
+  transition:background .18s ease, transform .18s ease;
+}
+
+.button:hover{
+  background:var(--button-hover);
+  transform:translateY(-2px);
+}
+
+.small-note{
+  margin-top:14px;
+  font-size:16px;
+  color:var(--soft);
+}
+
+@media (max-width: 900px){
+  .hero-grid,
+  .skills-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section-card{
+    padding:28px 20px;
+  }
+
+  .hero-box-title{
+    font-size:24px;
+  }
+
+  .skill-card{
+    text-align:center;
+  }
+}
 </style>
 </head>
 
 <body>
 
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Marcel Chanard</h1>
 
-<section>
-<div class="container">
+      <div class="subtitle">
+        Étudiante en BUT GEA — parcours GC2F
+      </div>
 
-<h1>Marcel Chanard</h1>
+      <div class="portfolio">
+        Portfolio
+      </div>
 
-<div class="subtitle">
-Étudiante en BUT GEA — parcours GC2F
-</div>
+      <div class="hero-grid">
+        <a class="hero-box" href="#profil">
+          <div class="hero-box-title">Qui suis-je</div>
+          <div class="hero-box-text">
+            Mon parcours, mon profil et mes objectifs académiques.
+          </div>
+        </a>
 
-<div class="portfolio">
-Portfolio
-</div>
+        <a class="hero-box" href="#parcours">
+          <div class="hero-box-title">Parcours scolaire</div>
+          <div class="hero-box-text">
+            Mon parcours entre les États-Unis, la France et mes études actuelles.
+          </div>
+        </a>
 
-</div>
-</section>
+        <a class="hero-box" href="#competences">
+          <div class="hero-box-title">Compétences</div>
+          <div class="hero-box-text">
+            Excel, Word, PowerPoint, Canva et leur utilisation concrète.
+          </div>
+        </a>
 
+        <a class="hero-box" href="#experience">
+          <div class="hero-box-title">Expérience</div>
+          <div class="hero-box-text">
+            Mon stage chez Laforêt et les outils que j’y ai créés.
+          </div>
+        </a>
 
-<section>
-<div class="container">
+        <a class="hero-box" href="#projets">
+          <div class="hero-box-title">Projets</div>
+          <div class="hero-box-text">
+            Section prête pour ajouter tes projets plus tard.
+          </div>
+        </a>
 
-<h2>Qui suis-je</h2>
+        <a class="hero-box" href="#contact">
+          <div class="hero-box-title">Contact</div>
+          <div class="hero-box-text">
+            Email, téléphone, LinkedIn et accès à mon CV.
+          </div>
+        </a>
+      </div>
 
+      <div class="scroll-down">
+        ou fais simplement défiler
+      </div>
+    </div>
+  </section>
 
+  <main>
+    <section id="profil">
+      <div class="section-card">
+        <h2>Qui suis-je</h2>
+        <div class="text-block">
+          <p>
+            Je m'appelle Marcel Chanard, j’ai 19 ans. Je suis née aux États-Unis,
+            dans l’État de Washington, et je possède la double nationalité
+            franco-américaine.
+          </p>
+          <p>
+            J’ai vécu 16 ans aux États-Unis avant de venir m’installer en France.
+            Cette double culture m’a permis de développer une ouverture
+            internationale ainsi qu’une grande capacité d’adaptation.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<p>
-Je m'appelle Marcel Chanard, j’ai 19 ans. Je suis né aux États-Unis, dans l’État de Washington, et je possède la double nationalité franco-américaine. J’ai vécu 16 ans aux États-Unis avant de venir m’installer en France.
+    <section id="parcours">
+      <div class="section-card">
+        <h2>Parcours scolaire</h2>
+        <div class="text-block">
+          <p>
+            À mon arrivée en France, j’ai intégré un lycée en voie générale,
+            où j’ai effectué ma Première et ma Terminale avec mention Bien.
+          </p>
+          <p>
+            Je suis actuellement en première année de Bachelor Universitaire de
+            Technologie en Gestion des Entreprises et des Administrations (GEA).
+            L’année prochaine, je poursuivrai le parcours Gestion Comptable,
+            Fiscale et Financière (GC2F).
+          </p>
+          <p>
+            Après l’obtention de mon BUT, je souhaite poursuivre mes études dans
+            une grande école afin de me spécialiser en finance d’entreprise
+            (Corporate Finance).
+          </p>
+          <p>
+            Mon objectif professionnel est de travailler dans le domaine de la
+            finance, notamment dans des secteurs tels que la banque,
+            l’investissement ou le private equity.
+          </p>
+        </div>
+      </div>
+    </section>
 
-</p>
+    <section id="competences">
+      <div class="section-card">
+        <h2>Compétences</h2>
 
-</div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-head">
+              <img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Logo Excel">
+              <div class="skill-title">Excel</div>
+            </div>
+            <div class="skill-text">
+              Création de tableaux de suivi, automatisation d’outils de gestion,
+              organisation claire des données et synthèses utilisables au quotidien.
+            </div>
+          </div>
 
-</div>
-</section>
+          <div class="skill-card">
+            <div class="skill-head">
+              <img src="https://cdn.simpleicons.org/microsoftword/185ABD" alt="Logo Word">
+              <div class="skill-title">Word</div>
+            </div>
+            <div class="skill-text">
+              Mise en forme de documents structurés, rédaction claire et présentation
+              soignée de contenus académiques et professionnels.
+            </div>
+          </div>
 
+          <div class="skill-card">
+            <div class="skill-head">
+              <img src="https://cdn.simpleicons.org/microsoftpowerpoint/B7472A" alt="Logo PowerPoint">
+              <div class="skill-title">PowerPoint</div>
+            </div>
+            <div class="skill-text">
+              Réalisation de présentations visuelles, synthétiques et lisibles,
+              adaptées à une communication claire et professionnelle.
+            </div>
+          </div>
 
+          <div class="skill-card">
+            <div class="skill-head">
+              <img src="https://cdn.simpleicons.org/canva/00C4CC" alt="Logo Canva">
+              <div class="skill-title">Canva</div>
+            </div>
+            <div class="skill-text">
+              Création de supports visuels propres et modernes pour valoriser
+              une information de manière simple, fluide et esthétique.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section>
-<div class="container">
+    <section id="experience">
+      <div class="section-card">
+        <h2>Expérience</h2>
+        <p><strong>Stage — Agence Laforêt</strong></p>
+        <ul class="exp-list">
+          <li>Création de tableaux de suivi pour l’agence et les collaborateurs.</li>
+          <li>Automatisation des tableaux pour simplifier le suivi de l’activité.</li>
+          <li>Outils utilisés par la directrice pour le pilotage interne.</li>
+        </ul>
+      </div>
+    </section>
 
-<h2>Parcours scolaire</h2>
+    <section id="projets">
+      <div class="section-card">
+        <h2>Projets</h2>
+        <p>
+          Cette section est prête à être complétée plus tard avec tes projets,
+          études de cas ou réalisations personnelles.
+        </p>
+      </div>
+    </section>
 
+    <section id="contact">
+      <div class="section-card">
+        <h2>Contact</h2>
+        <div class="contact-list">
+          <div>Email : mchanard@hotmail.com</div>
+          <div>Téléphone : 07 44 52 95 34</div>
+          <a href="https://fr.linkedin.com/in/mchanard" target="_blank" rel="noreferrer">
+            LinkedIn : fr.linkedin.com/in/mchanard
+          </a>
+        </div>
 
-  
-<p>
-À mon arrivée en France, j’ai intégré un lycée en voie générale, où j’ai effectué ma Première et ma Terminale avec mention Bien.
-<br>
-<br>
-Je suis actuellement en première année de Bachelor (BUT) en Gestion des Entreprises et des Administrations (GEA). L’année prochaine, je poursuivrai le parcours Gestion Comptable, Fiscale et Financière (GC2F), qui me permettra de me spécialiser davantage dans les domaines de la gestion financière et de l’analyse des organisations.
-<br>
-<br>
-<br>
-Après l’obtention de mon BUT, je souhaite poursuivre mes études dans une grande école pour faire un master spécialisé en finance d’entreprise (Corporate Finance).
-<br>
-<br>
-Mon objectif professionnel est de travailler dans le domaine de la finance, notamment dans des secteurs tels que la banque, l’investissement ou le private equity, où je pourrai développer mes compétences en analyse financière, en stratégie et en prise de décision.
-</p>
-
-</div>
-
-</div>
-</section>
-
-  
-<section>
-<div class="container">
-<h2>Compétences</h2>
-
-<ul>
-<li>Excel</li>
-<li>Word</li>
-<li>PowerPoint</li>
-<li>Canva</li>
-<li>Création de tableaux automatisés</li>
-</ul>
-
-</div>
-</section>
-
-
-
-<section>
-<div class="container">
-
-<h2>Expérience</h2>
-
-
-
-<p><strong>Stage — Agence Laforêt</strong></p>
-
-<ul>
-<li>Création de tableaux de suivi pour l’agence</li>
-<li>Automatisation des tableaux</li>
-<li>Outils utilisés par la directrice</li>
-</ul>
-
-</div>
-
-</div>
-</section>
-
-
-
-<section>
-<div class="container">
-
-<h2>Contact</h2>
-
-
-
-<p>Email : mchanard@hotmail.com</p>
-
-<p>Téléphone : 07 44 52 95 34</p>
-
-<p>
-LinkedIn :
-<a href="https://fr.linkedin.com/in/mchanard" target="_blank">
-fr.linkedin.com/in/mchanard
-</a>
-</p>
-
-<a class="button" href="cv.pdf" target="_blank">
-Voir mon CV
-</a>
-
-</div>
-
-</div>
-</section>
-
+        <a class="button" href="cv.pdf" target="_blank">Voir mon CV</a>
+        <div class="small-note">Tu pourras aussi ajouter un bouton vers tes projets plus tard.</div>
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
