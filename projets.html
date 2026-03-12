@@ -7,15 +7,16 @@
 
   <style>
     :root{
-      --bg:#05080d;
-      --panel:#0d1420;
-      --text:#f5f7fb;
-      --muted:#b7c3d4;
-      --line:rgba(255,255,255,0.10);
-      --button:#243246;
-      --button-hover:#31445d;
-      --max:1200px;
-    }
+  --bg:#0b0f14;
+  --panel:#121821;
+  --panel-2:#0f141c;
+  --text:#f4f4f4;
+  --muted:#a7b4c7;
+  --line:rgba(255,255,255,0.08);
+  --button:#1f2a37;
+  --button-hover:#2a3848;
+  --max:1100px;
+}
 
     *{ box-sizing:border-box; }
 
@@ -24,11 +25,10 @@
     }
 
     body{
-      margin:0;
-      font-family:system-ui,-apple-system,Helvetica,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Helvetica,Arial,sans-serif;
+}
 
     a{
       color:inherit;
@@ -90,14 +90,11 @@
     }
 
     .project-card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      min-height:100%;
-    }
+  background: rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:26px;
+}
 
     .project-image{
       width:100%;
