@@ -9,7 +9,6 @@
     :root{
       --bg:#05080d;
       --panel:#0d1420;
-      --panel-2:#111a28;
       --text:#f5f7fb;
       --muted:#b7c3d4;
       --line:rgba(255,255,255,0.10);
@@ -18,8 +17,10 @@
       --max:1200px;
     }
 
-    *{
-      box-sizing:border-box;
+    *{ box-sizing:border-box; }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
@@ -67,10 +68,6 @@
       opacity:0.95;
     }
 
-    .nav a:hover{
-      opacity:1;
-    }
-
     .page{
       max-width:var(--max);
       margin:0 auto;
@@ -88,7 +85,7 @@
 
     .projects-grid{
       display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:26px;
     }
 
@@ -104,7 +101,7 @@
 
     .project-image{
       width:100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio:16 / 9;
       object-fit:cover;
       display:block;
       background:#0b1220;
@@ -131,17 +128,9 @@
       color:var(--muted);
     }
 
-    h2{
-      margin:0 0 14px;
-      font-size:34px;
-      line-height:1.1;
-      font-weight:800;
-      letter-spacing:-0.02em;
-    }
-
     .project-title{
       margin:0 0 14px;
-      font-size:22px;
+      font-size:24px;
       line-height:1.25;
       font-weight:750;
     }
@@ -154,16 +143,21 @@
       flex:1;
     }
 
-    .button{
+    .button-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
       margin-top:22px;
+    }
+
+    .button{
       display:inline-block;
-      align-self:flex-start;
       padding:12px 18px;
       border-radius:12px;
       background:var(--button);
       border:1px solid var(--line);
       color:white;
-      font-size:17px;
+      font-size:16px;
       font-weight:600;
       transition:background .18s ease, transform .18s ease;
     }
@@ -173,28 +167,9 @@
       transform:translateY(-2px);
     }
 
-    @media (max-width: 1050px){
-      .projects-grid{
-        grid-template-columns:repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 720px){
-      .topbar-inner{
-        flex-direction:column;
-        justify-content:center;
-      }
-
+    @media (max-width: 850px){
       .projects-grid{
         grid-template-columns:1fr;
-      }
-
-      .page{
-        padding-top:50px;
-      }
-
-      .project-content{
-        text-align:left;
       }
     }
   </style>
@@ -205,8 +180,8 @@
     <div class="topbar-inner">
       <div class="brand">Marcel Chanard</div>
       <nav class="nav">
-        <a href="projects.html">Projects</a>
-        <a href="index.html">Home</a>
+        <a href="index.html">Accueil</a>
+        <a href="projects.html">Projets</a>
       </nav>
     </div>
   </header>
@@ -217,7 +192,7 @@
     <div class="projects-grid">
 
       <article class="project-card">
-        <img class="project-image" src="images/analyse-financiere.png" alt="Analyse financière" />
+        <img class="project-image" src="images/analyse-financiere.jpg" alt="Analyse financière" />
         <div class="project-content">
           <div class="badge">Projet</div>
           <div class="project-title">Analyse financière</div>
@@ -225,12 +200,15 @@
             Analyse financière réalisée comme projet personnel, avec étude des performances,
             lecture des états financiers et mise en évidence d’indicateurs clés.
           </p>
-          <a class="button" href="analyse_financiere.pdf" target="_blank">Voir le projet</a>
+          <div class="button-row">
+            <a class="button" href="analyse_financiere.xlsx" target="_blank">Fichier Excel</a>
+            <a class="button" href="analyse_financiere_note.pdf" target="_blank">Note PDF</a>
+          </div>
         </div>
       </article>
 
       <article class="project-card">
-        <img class="project-image" src="images/haribo.png" alt="DCF de Haribo" />
+        <img class="project-image" src="images/haribo-dcf.jpg" alt="DCF de Haribo" />
         <div class="project-content">
           <div class="badge">À venir</div>
           <div class="project-title">DCF de Haribo</div>
@@ -238,12 +216,15 @@
             Projet de valorisation d’entreprise à compléter : hypothèses, flux de trésorerie,
             actualisation et analyse de la valeur.
           </p>
-          <a class="button" href="#">Voir le projet</a>
+          <div class="button-row">
+            <a class="button" href="#">Fichier Excel</a>
+            <a class="button" href="#">Note PDF</a>
+          </div>
         </div>
       </article>
 
       <article class="project-card">
-        <img class="project-image" src="images/openai-ipo.png" alt="IPO de OpenAI" />
+        <img class="project-image" src="images/openai-ipo.jpg" alt="IPO de OpenAI" />
         <div class="project-content">
           <div class="badge">À venir</div>
           <div class="project-title">IPO de OpenAI</div>
@@ -251,12 +232,15 @@
             Projet futur autour d’une introduction en bourse, avec réflexion sur la valorisation,
             le positionnement stratégique et les perspectives de marché.
           </p>
-          <a class="button" href="#">Voir le projet</a>
+          <div class="button-row">
+            <a class="button" href="#">Fichier Excel</a>
+            <a class="button" href="#">Note PDF</a>
+          </div>
         </div>
       </article>
 
       <article class="project-card">
-        <img class="project-image" src="images/carrefour-lbo.png" alt="LBO de Carrefour" />
+        <img class="project-image" src="images/carrefour-lbo.jpg" alt="LBO de Carrefour" />
         <div class="project-content">
           <div class="badge">À venir</div>
           <div class="project-title">LBO de Carrefour</div>
@@ -264,7 +248,10 @@
             Projet futur consacré à une logique de leveraged buyout, avec structure de financement,
             création de valeur et analyse de rentabilité.
           </p>
-          <a class="button" href="#">Voir le projet</a>
+          <div class="button-row">
+            <a class="button" href="#">Fichier Excel</a>
+            <a class="button" href="#">Note PDF</a>
+          </div>
         </div>
       </article>
 
