@@ -1,99 +1,275 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-<meta charset="UTF-8">
-<title>Projets — Marcel Chanard</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets — Marcel Chanard</title>
 
-body{
-font-family: system-ui,-apple-system,Helvetica,Arial,sans-serif;
-background:#0b0f14;
-color:white;
-text-align:center;
-padding:60px;
-}
+  <style>
+    :root{
+      --bg:#05080d;
+      --panel:#0d1420;
+      --panel-2:#111a28;
+      --text:#f5f7fb;
+      --muted:#b7c3d4;
+      --line:rgba(255,255,255,0.10);
+      --button:#243246;
+      --button-hover:#31445d;
+      --max:1200px;
+    }
 
-.card{
-background:#121821;
-padding:30px;
-border-radius:12px;
-margin:30px auto;
-max-width:600px;
-}
+    *{
+      box-sizing:border-box;
+    }
 
-.button{
-display:inline-block;
-margin-top:15px;
-padding:10px 18px;
-background:#1f2a37;
-border-radius:8px;
-text-decoration:none;
-color:white;
-}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
 
-</style>
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .topbar{
+      width:100%;
+      border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,0.02);
+    }
+
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:26px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand{
+      font-size:20px;
+      font-weight:700;
+    }
+
+    .nav{
+      display:flex;
+      gap:28px;
+      align-items:center;
+    }
+
+    .nav a{
+      font-size:18px;
+      color:var(--text);
+      opacity:0.95;
+    }
+
+    .nav a:hover{
+      opacity:1;
+    }
+
+    .page{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:70px 24px 90px;
+    }
+
+    h1{
+      margin:0 0 50px;
+      text-align:center;
+      font-size:clamp(44px,5vw,72px);
+      line-height:1.05;
+      font-weight:800;
+      letter-spacing:-0.03em;
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:26px;
+    }
+
+    .project-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .project-image{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      object-fit:cover;
+      display:block;
+      background:#0b1220;
+    }
+
+    .project-content{
+      padding:22px 22px 24px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+      text-align:left;
+    }
+
+    .badge{
+      display:inline-block;
+      align-self:flex-start;
+      margin-bottom:14px;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid var(--line);
+      font-size:13px;
+      font-weight:700;
+      color:var(--muted);
+    }
+
+    h2{
+      margin:0 0 14px;
+      font-size:34px;
+      line-height:1.1;
+      font-weight:800;
+      letter-spacing:-0.02em;
+    }
+
+    .project-title{
+      margin:0 0 14px;
+      font-size:22px;
+      line-height:1.25;
+      font-weight:750;
+    }
+
+    .project-text{
+      margin:0;
+      font-size:18px;
+      line-height:1.75;
+      color:var(--muted);
+      flex:1;
+    }
+
+    .button{
+      margin-top:22px;
+      display:inline-block;
+      align-self:flex-start;
+      padding:12px 18px;
+      border-radius:12px;
+      background:var(--button);
+      border:1px solid var(--line);
+      color:white;
+      font-size:17px;
+      font-weight:600;
+      transition:background .18s ease, transform .18s ease;
+    }
+
+    .button:hover{
+      background:var(--button-hover);
+      transform:translateY(-2px);
+    }
+
+    @media (max-width: 1050px){
+      .projects-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px){
+      .topbar-inner{
+        flex-direction:column;
+        justify-content:center;
+      }
+
+      .projects-grid{
+        grid-template-columns:1fr;
+      }
+
+      .page{
+        padding-top:50px;
+      }
+
+      .project-content{
+        text-align:left;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>Mes projets</h1>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Marcel Chanard</div>
+      <nav class="nav">
+        <a href="projects.html">Projects</a>
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
 
+  <main class="page">
+    <h1>Mes projets</h1>
 
-  
-<div class="card">
-<img src="images/x">
-<h3>Analyse financière</h3>
-<p>
-Analyse financière réalisée comme projet personnel.
-Étude des performances financières et indicateurs clés.
-</p>
-  
-<a class="button" href="Marcel_CHANARD_Projet analyse financiere.xlsx" target="_blank">
-Voir le projet
-</a>
-</div>
+    <div class="projects-grid">
 
+      <article class="project-card">
+        <img class="project-image" src="images/analyse-financiere.png" alt="Analyse financière" />
+        <div class="project-content">
+          <div class="badge">Projet</div>
+          <div class="project-title">Analyse financière</div>
+          <p class="project-text">
+            Analyse financière réalisée comme projet personnel, avec étude des performances,
+            lecture des états financiers et mise en évidence d’indicateurs clés.
+          </p>
+          <a class="button" href="analyse_financiere.pdf" target="_blank">Voir le projet</a>
+        </div>
+      </article>
 
-  
-<div class="card">
-<img src="images/x">
-<h3>DCF de Haribo</h3>
-<p>
-a faire
-</p>
-  
-<a class="button" href="" target="_blank">
-Voir le projet
-</a>
+      <article class="project-card">
+        <img class="project-image" src="images/haribo.png" alt="DCF de Haribo" />
+        <div class="project-content">
+          <div class="badge">À venir</div>
+          <div class="project-title">DCF de Haribo</div>
+          <p class="project-text">
+            Projet de valorisation d’entreprise à compléter : hypothèses, flux de trésorerie,
+            actualisation et analyse de la valeur.
+          </p>
+          <a class="button" href="#">Voir le projet</a>
+        </div>
+      </article>
 
+      <article class="project-card">
+        <img class="project-image" src="images/openai-ipo.png" alt="IPO de OpenAI" />
+        <div class="project-content">
+          <div class="badge">À venir</div>
+          <div class="project-title">IPO de OpenAI</div>
+          <p class="project-text">
+            Projet futur autour d’une introduction en bourse, avec réflexion sur la valorisation,
+            le positionnement stratégique et les perspectives de marché.
+          </p>
+          <a class="button" href="#">Voir le projet</a>
+        </div>
+      </article>
 
+      <article class="project-card">
+        <img class="project-image" src="images/carrefour-lbo.png" alt="LBO de Carrefour" />
+        <div class="project-content">
+          <div class="badge">À venir</div>
+          <div class="project-title">LBO de Carrefour</div>
+          <p class="project-text">
+            Projet futur consacré à une logique de leveraged buyout, avec structure de financement,
+            création de valeur et analyse de rentabilité.
+          </p>
+          <a class="button" href="#">Voir le projet</a>
+        </div>
+      </article>
 
-<div class="card">
-<img src="images/x">
-<h3>IPO de OpenAI</h3>
-<p>
-a faire
-</p>
-  
-<a class="button" href="" target="_blank">
-Voir le projet
-</a>
-</div>
+    </div>
+  </main>
 
-<div class="card">
-<img src="images/x">
-<h3>LBO de Carrefour</h3>
-<p>
-a faire
-</p>
-  
-<a class="button" href="" target="_blank">
-Voir le projet
-</a>
-</div>
-
-  
 </body>
-
 </html>
