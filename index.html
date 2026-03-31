@@ -27,8 +27,6 @@
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
-
-    /* ── Topbar ──────────────────────────────────────────── */
     .topbar {
       position: sticky; top: 0; z-index: 100;
       width: 100%;
@@ -39,31 +37,22 @@
     }
     .topbar-inner {
       max-width: var(--max); margin: 0 auto;
-      padding: 0 28px;
-      height: 56px;
+      padding: 0 28px; height: 56px;
       display: flex; justify-content: space-between; align-items: center;
     }
     .brand { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
     .nav { display: flex; gap: 28px; align-items: center; }
     .nav a { font-size: 14px; color: var(--muted); transition: color .15s; letter-spacing: -0.01em; }
     .nav a:hover, .nav a.active { color: var(--text); }
-
-    /* ── Language toggle ─────────────────────────────────── */
-    .lang-toggle {
-      display: flex; gap: 1px;
-      margin-left: 12px;
-    }
+    .lang-toggle { display: flex; gap: 1px; margin-left: 12px; }
     .lang-btn {
       background: none; border: none; cursor: pointer;
       padding: 4px 9px; border-radius: 6px;
       font-size: 12px; font-weight: 700; letter-spacing: .04em;
-      color: var(--soft);
-      transition: all .15s;
+      color: var(--soft); transition: all .15s;
     }
     .lang-btn.active { background: var(--accent-dim); color: var(--accent); }
     .lang-btn:hover:not(.active) { color: var(--muted); }
-
-    /* ── Back to top ─────────────────────────────────────── */
     .back-to-top {
       position: fixed; right: 28px; bottom: 32px; z-index: 50;
       width: 40px; height: 40px; border-radius: 50%;
@@ -73,17 +62,16 @@
       display: flex; align-items: center; justify-content: center;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      transition: opacity .25s, transform .2s, border-color .2s, color .2s;
       opacity: 0; pointer-events: none;
+      transition: opacity .25s, transform .2s, border-color .2s, color .2s;
+      text-decoration: none;
     }
     .back-to-top.visible { opacity: 1; pointer-events: auto; }
     .back-to-top:hover { border-color: var(--accent-border); color: var(--accent); transform: translateY(-3px); }
-
-    /* ── Hero ─────────────────────────────────────────────── */
     .hero {
       min-height: calc(100vh - 56px);
       display: flex; align-items: center; justify-content: center;
-      padding: 80px 28px 80px;
+      padding: 80px 28px;
       text-align: center;
     }
     .hero-inner { max-width: var(--max); width: 100%; }
@@ -106,8 +94,6 @@
       background: var(--accent); margin: 36px auto;
       opacity: 0.7;
     }
-
-    /* Hero grid — clean table lines, no fills */
     .hero-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -116,10 +102,11 @@
     }
     .hero-box {
       padding: 28px 22px;
-      text-align: left;
+      text-align: center;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       transition: background .2s;
+      display: flex; flex-direction: column; align-items: center;
     }
     .hero-box:hover { background: rgba(255,255,255,0.022); }
     .hero-box-label {
@@ -131,19 +118,9 @@
     .hero-box:hover .hero-box-label { opacity: 1; }
     .hero-box-title { font-size: 16px; font-weight: 700; margin-bottom: 7px; letter-spacing: -0.01em; }
     .hero-box-text { font-size: 13px; line-height: 1.65; color: var(--muted); }
-
-    /* ── Main ───────────────────────────────────────────────── */
     main { padding: 0 28px 120px; }
-
-    /* ── Sections ─────────────────────────────────────────── */
-    section {
-      padding: 80px 0;
-      border-top: 1px solid var(--line);
-    }
-    .section-inner {
-      max-width: 700px; margin: 0 auto;
-      text-align: left;
-    }
+    section { padding: 80px 0; border-top: 1px solid var(--line); }
+    .section-inner { max-width: 700px; margin: 0 auto; text-align: left; }
     .section-label {
       font-size: 10px; font-weight: 700; letter-spacing: .16em;
       text-transform: uppercase; color: var(--accent);
@@ -154,84 +131,44 @@
       line-height: 1.08; margin: 0 0 36px; font-weight: 800; letter-spacing: -0.03em;
       text-align: left;
     }
-    p {
-      font-size: clamp(15px, 1.4vw, 16.5px); line-height: 1.85;
-      color: var(--muted); margin: 0; letter-spacing: -0.005em;
-    }
+    p { font-size: clamp(15px, 1.4vw, 16.5px); line-height: 1.85; color: var(--muted); margin: 0; letter-spacing: -0.005em; }
     .text-block { display: flex; flex-direction: column; gap: 18px; }
-
-    /* ── Skills ──────────────────────────────────────────────── */
     .skills-list { display: flex; flex-direction: column; }
-    .skill-row {
-      display: flex; align-items: flex-start; gap: 20px;
-      padding: 22px 0;
-      border-top: 1px solid var(--line);
-    }
+    .skill-row { display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
     .skill-row:first-child { border-top: none; }
-    .skill-name-col {
-      flex: 0 0 180px;
-      display: flex; align-items: center; gap: 9px;
-    }
+    .skill-name-col { flex: 0 0 180px; display: flex; align-items: center; gap: 9px; }
     .skill-icon-emoji { font-size: 18px; line-height: 1; }
     .skill-icon { width: 22px; height: 22px; object-fit: contain; }
     .skill-title { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
     .skill-tags-col { flex: 1; display: flex; flex-direction: column; gap: 8px; }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag {
-      padding: 3px 10px; border-radius: 999px;
-      background: var(--accent-dim); border: 1px solid var(--accent-border);
-      color: var(--accent); font-size: 12px; font-weight: 500; white-space: nowrap;
-      opacity: .9;
-    }
-    .tag.neutral {
-      background: rgba(255,255,255,0.03); border-color: var(--line);
-      color: var(--muted);
-    }
-    .skill-note {
-      font-size: 12.5px; color: var(--soft); line-height: 1.65;
-    }
-
-    /* ── Experience ────────────────────────────────────────── */
+    .tag { padding: 3px 10px; border-radius: 999px; background: var(--accent-dim); border: 1px solid var(--accent-border); color: var(--accent); font-size: 12px; font-weight: 500; white-space: nowrap; opacity: .9; }
+    .tag.neutral { background: rgba(255,255,255,0.03); border-color: var(--line); color: var(--muted); }
+    .skill-note { font-size: 12.5px; color: var(--soft); line-height: 1.65; }
     .exp-entry { padding-left: 16px; border-left: 2px solid var(--accent); }
     .exp-company { font-size: 15px; font-weight: 700; margin-bottom: 3px; letter-spacing: -0.01em; }
     .exp-meta { font-size: 12px; color: var(--soft); margin-bottom: 14px; letter-spacing: .02em; }
-    .exp-list {
-      list-style: none; padding: 0; margin: 0;
-      display: flex; flex-direction: column; gap: 8px;
-    }
-    .exp-list li {
-      font-size: 14.5px; line-height: 1.7; color: var(--muted);
-      padding-left: 16px; position: relative;
-    }
+    .exp-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .exp-list li { font-size: 14.5px; line-height: 1.7; color: var(--muted); padding-left: 16px; position: relative; }
     .exp-list li::before { content: '–'; position: absolute; left: 0; color: var(--accent); opacity: .6; }
-
-    /* ── Contact ───────────────────────────────────────────── */
-    .contact-list {
-      display: flex; flex-wrap: wrap; column-gap: 40px; row-gap: 14px;
-    }
-    .contact-item {
-      display: flex; align-items: center; gap: 9px;
-      font-size: 14px; color: var(--muted);
-      padding-bottom: 2px;
-      border-bottom: 1px solid transparent;
-      transition: color .15s, border-color .15s;
-    }
-    .contact-item:hover { color: var(--text); border-bottom-color: var(--accent); }
-    .contact-icon { font-size: 15px; }
-
-    /* ── Media ─────────────────────────────────────────────── */
+    .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .contact-card { padding: 28px 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; transition: background .2s; text-decoration: none; color: inherit; }
+    .contact-card:hover { background: rgba(255,255,255,0.022); }
+    .contact-card-icon { font-size: 22px; line-height: 1; }
+    .contact-card-label { font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--accent); opacity: .8; transition: opacity .15s; }
+    .contact-card:hover .contact-card-label { opacity: 1; }
+    .contact-card-value { font-size: 14px; color: var(--muted); line-height: 1.4; transition: color .15s; }
+    .contact-card:hover .contact-card-value { color: var(--text); }
     @media (max-width: 760px) {
       .hero-grid { grid-template-columns: 1fr 1fr; }
       .skill-row { flex-direction: column; gap: 10px; }
       .skill-name-col { flex: none; }
-      .contact-list { flex-direction: column; gap: 12px; }
+      .contact-grid { grid-template-columns: 1fr; }
       .topbar-inner { padding: 0 18px; }
       main { padding: 0 18px 100px; }
       .hero { padding: 60px 18px; }
     }
-    @media (max-width: 480px) {
-      .hero-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 480px) { .hero-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -250,45 +187,42 @@
   </div>
 </header>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow" data-i18n="hero-portfolio">Portfolio</div>
     <h1>Marcel Chanard</h1>
-    <div class="hero-sub" data-i18n="hero-subtitle">
-      Étudiant en BUT GEA — parcours GC2F
-    </div>
+    <div class="hero-sub" data-i18n="hero-subtitle">Etudiant en BUT GEA — parcours GC2F</div>
     <div class="hero-divider"></div>
     <div class="hero-grid">
       <a class="hero-box" href="#profil">
         <div class="hero-box-label" data-i18n="box-who-label">Profil</div>
         <div class="hero-box-title" data-i18n="box-who-title">Qui suis-je</div>
-        <div class="hero-box-text" data-i18n="box-who-text">Mon parcours franco-américain et mes objectifs en finance.</div>
+        <div class="hero-box-text" data-i18n="box-who-text">Mon parcours franco-americain et mes objectifs en finance.</div>
       </a>
       <a class="hero-box" href="#parcours">
         <div class="hero-box-label" data-i18n="box-edu-label">Formation</div>
         <div class="hero-box-title" data-i18n="box-edu-title">Parcours scolaire</div>
-        <div class="hero-box-text" data-i18n="box-edu-text">BUT GEA en cours, objectif grande école et Corporate Finance.</div>
+        <div class="hero-box-text" data-i18n="box-edu-text">BUT GEA en cours, objectif grande ecole et Corporate Finance.</div>
       </a>
       <a class="hero-box" href="#competences">
         <div class="hero-box-label" data-i18n="box-skills-label">Savoir-faire</div>
-        <div class="hero-box-title" data-i18n="box-skills-title">Compétences</div>
+        <div class="hero-box-title" data-i18n="box-skills-title">Competences</div>
         <div class="hero-box-text" data-i18n="box-skills-text">Finance, Excel, bilinguisme et outils bureautiques.</div>
       </a>
       <a class="hero-box" href="#experience">
         <div class="hero-box-label" data-i18n="box-exp-label">Terrain</div>
-        <div class="hero-box-title" data-i18n="box-exp-title">Expérience</div>
-        <div class="hero-box-text" data-i18n="box-exp-text">Stage en agence immobilière — outils créés et utilisés en interne.</div>
+        <div class="hero-box-title" data-i18n="box-exp-title">Experience</div>
+        <div class="hero-box-text" data-i18n="box-exp-text">Stage en agence immobiliere — outils crees et utilises en interne.</div>
       </a>
       <a class="hero-box" href="projets.html">
         <div class="hero-box-label" data-i18n="box-proj-label">Travaux</div>
         <div class="hero-box-title" data-i18n="box-proj-title">Projets</div>
-        <div class="hero-box-text" data-i18n="box-proj-text">Modèle DCF sur LVMH, analyse financière sur Excel.</div>
+        <div class="hero-box-text" data-i18n="box-proj-text">Modele DCF sur LVMH, analyse financiere sur Excel.</div>
       </a>
       <a class="hero-box" href="#contact">
         <div class="hero-box-label" data-i18n="box-contact-label">Me contacter</div>
         <div class="hero-box-title" data-i18n="box-contact-title">Contact</div>
-        <div class="hero-box-text" data-i18n="box-contact-text">Email, téléphone, LinkedIn et CV téléchargeable.</div>
+        <div class="hero-box-text" data-i18n="box-contact-text">Email, telephone, LinkedIn et CV telechargeable.</div>
       </a>
     </div>
   </div>
@@ -296,100 +230,120 @@
 
 <main>
 
-  <!-- ── PROFIL ─────────────────────────────────────────────── -->
   <section id="profil">
     <div class="section-inner">
       <div class="section-label" data-i18n="section-profile-label">Profil</div>
       <h2 data-i18n="section-profile-title">Qui suis-je</h2>
       <div class="text-block">
-        <p data-i18n="profile-p1">Je m'appelle Marcel Chanard, j'ai 19 ans. Je suis né aux États-Unis, dans l'État de Washington, et je possède la double nationalité franco-américaine.</p>
-        <p data-i18n="profile-p2">J'ai vécu 16 ans aux États-Unis avant de venir m'installer en France. Cette double culture m'a permis de développer une réelle ouverture internationale et une capacité d'adaptation que j'applique aussi bien dans mes études que dans mes projets.</p>
+        <p data-i18n="profile-p1">Je m'appelle Marcel Chanard, j'ai 19 ans. Je suis ne aux Etats-Unis, dans l'Etat de Washington, et je possede la double nationalite franco-americaine.</p>
+        <p data-i18n="profile-p2">J'ai vecu 16 ans aux Etats-Unis avant de venir m'installer en France. Cette double culture m'a permis de developper une reelle ouverture internationale et une capacite d'adaptation.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── PARCOURS ────────────────────────────────────────────── -->
   <section id="parcours">
     <div class="section-inner">
       <div class="section-label" data-i18n="section-edu-label">Formation</div>
       <h2 data-i18n="section-edu-title">Parcours scolaire</h2>
       <div class="text-block">
-        <p data-i18n="edu-p1">À mon arrivée en France, j'ai intégré un lycée en voie générale, où j'ai effectué ma Première et ma Terminale avec mention Bien.</p>
-        <p data-i18n="edu-p2">Je suis actuellement en première année de Bachelor en Gestion des Entreprises et des Administrations (GEA). L'année prochaine, je poursuivrai le parcours Gestion Comptable, Fiscale et Financière (GC2F).</p>
-        <p data-i18n="edu-p3">Après l'obtention de mon BUT, je souhaite intégrer une grande école afin de me spécialiser en finance d'entreprise (Corporate Finance).</p>
+        <p data-i18n="edu-p1">A mon arrivee en France, j'ai integre un lycee en voie generale, ou j'ai effectue ma Premiere et ma Terminale avec mention Bien.</p>
+        <p data-i18n="edu-p2">Je suis actuellement en premiere annee de Bachelor en Gestion des Entreprises et des Administrations (GEA). L'annee prochaine, je poursuivrai le parcours Gestion Comptable, Fiscale et Financiere (GC2F).</p>
+        <p data-i18n="edu-p3">Apres l'obtention de mon BUT, je souhaite integrer une grande ecole afin de me specialiser en finance d'entreprise (Corporate Finance).</p>
         <p data-i18n="edu-p4">Mon objectif est de travailler dans la finance — banque d'investissement, private equity ou corporate finance.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── COMPÉTENCES ───────────────────────────────────────────── -->
   <section id="competences">
     <div class="section-inner">
       <div class="section-label" data-i18n="section-skills-label">Savoir-faire</div>
-      <h2 data-i18n="section-skills-title">Compétences</h2>
+      <h2 data-i18n="section-skills-title">Competences</h2>
       <div class="skills-list">
         <div class="skill-row">
           <div class="skill-name-col"><span class="skill-icon-emoji">🌐</span><span class="skill-title" data-i18n="skill-lang-title">Langues</span></div>
           <div class="skill-tags-col">
-            <div class="skill-tags"><span class="tag" data-i18n="tag-fr">Français — Bilingue</span><span class="tag" data-i18n="tag-en">Anglais — Natif </span></div>
-            <div class="skill-note" data-i18n="skill-lang-note">Né et scolarisé aux États-Unis jusqu'à 16 ans. Anglais courant à l'écrit comme à l'oral — prise de parole, rédaction académique et professionnelle.</div>
+            <div class="skill-tags"><span class="tag" data-i18n="tag-fr">Francais — natif</span><span class="tag" data-i18n="tag-en">Anglais — bilingue (C2)</span></div>
+            <div class="skill-note" data-i18n="skill-lang-note">Ne et scolarise aux Etats-Unis jusqu'a 16 ans. Anglais courant a l'ecrit comme a l'oral.</div>
           </div>
         </div>
         <div class="skill-row">
-          <div class="skill-name-col"><span class="skill-icon-emoji">📊</span><span class="skill-title" data-i18n="skill-finance-title">Analyse financière</span></div>
+          <div class="skill-name-col"><span class="skill-icon-emoji">📊</span><span class="skill-title" data-i18n="skill-finance-title">Analyse financiere</span></div>
           <div class="skill-tags-col">
-            <div class="skill-tags"><span class="tag" data-i18n="tag-dcf">Valorisation DCF</span><span class="tag" data-i18n="tag-wacc">WACC &amp; CAPM</span><span class="tag" data-i18n="tag-states">États financiers</span><span class="tag" data-i18n="tag-sensitivity">Analyse de sensibilité</span><span class="tag" data-i18n="tag-scenarios">Modélisation de scénarios</span></div>
+            <div class="skill-tags">
+              <span class="tag" data-i18n="tag-dcf">Valorisation DCF</span>
+              <span class="tag" data-i18n="tag-wacc">WACC &amp; CAPM</span>
+              <span class="tag" data-i18n="tag-states">Etats financiers</span>
+              <span class="tag" data-i18n="tag-sensitivity">Analyse de sensibilite</span>
+              <span class="tag" data-i18n="tag-scenarios">Modelisation de scenarios</span>
+            </div>
           </div>
         </div>
         <div class="skill-row">
-          <div class="skill-name-col"><img class="skill-icon" src="images/Excel.png" alt="Excel"><span class="skill-title" data-i18n="skill-excel-title">Excel avancé</span></div>
+          <div class="skill-name-col"><img class="skill-icon" src="images/Excel.png" alt="Excel"><span class="skill-title" data-i18n="skill-excel-title">Excel avance</span></div>
           <div class="skill-tags-col">
-            <div class="skill-tags"><span class="tag" data-i18n="tag-models">Modèles financiers</span><span class="tag" data-i18n="tag-formulas">Formules complexes</span><span class="tag" data-i18n="tag-dashboard">Tableaux de bord</span><span class="tag neutral" data-i18n="tag-pivot">Tableaux croisés dynamiques</span></div>
+            <div class="skill-tags">
+              <span class="tag" data-i18n="tag-models">Modeles financiers</span>
+              <span class="tag" data-i18n="tag-formulas">Formules complexes</span>
+              <span class="tag" data-i18n="tag-dashboard">Tableaux de bord</span>
+              <span class="tag neutral" data-i18n="tag-pivot">Tableaux croises dynamiques</span>
+            </div>
           </div>
         </div>
         <div class="skill-row">
           <div class="skill-name-col"><img class="skill-icon" src="images/Word.png" alt="Word"><span class="skill-title" data-i18n="skill-word-title">Word</span></div>
           <div class="skill-tags-col">
-            <div class="skill-tags"><span class="tag neutral" data-i18n="tag-layout">Mise en page avancée</span><span class="tag neutral" data-i18n="tag-reports">Notes &amp; rapports structurés</span></div>
+            <div class="skill-tags"><span class="tag neutral" data-i18n="tag-layout">Mise en page avancee</span><span class="tag neutral" data-i18n="tag-reports">Notes &amp; rapports structures</span></div>
           </div>
         </div>
         <div class="skill-row">
           <div class="skill-name-col"><span class="skill-icon-emoji">🖥️</span><span class="skill-title" data-i18n="skill-tools-title">Bureautique &amp; Design</span></div>
-          <div class="skill-tags-col">
-            <div class="skill-tags"><span class="tag neutral">PowerPoint</span><span class="tag neutral">Canva</span></div>
-          </div>
+          <div class="skill-tags-col"><div class="skill-tags"><span class="tag neutral">PowerPoint</span><span class="tag neutral">Canva</span></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── EXPÉRIENCE ───────────────────────────────────────────── -->
   <section id="experience">
     <div class="section-inner">
       <div class="section-label" data-i18n="section-exp-label">Terrain</div>
-      <h2 data-i18n="section-exp-title">Expérience</h2>
+      <h2 data-i18n="section-exp-title">Experience</h2>
       <div class="exp-entry">
-        <div class="exp-company" data-i18n="exp-company">Stage — Agence Laforêt</div>
+        <div class="exp-company" data-i18n="exp-company">Stage — Agence Laforet</div>
         <div class="exp-meta" data-i18n="exp-meta">Immobilier · 2024</div>
         <ul class="exp-list">
-          <li data-i18n="exp-li1">Création de tableaux de suivi de l'activité pour la directrice et les collaborateurs.</li>
+          <li data-i18n="exp-li1">Creation de tableaux de suivi de l'activite pour la directrice et les collaborateurs.</li>
           <li data-i18n="exp-li2">Automatisation des outils pour simplifier le pilotage interne au quotidien.</li>
-          <li data-i18n="exp-li3">Outils repris et utilisés en autonomie par l'équipe après la fin du stage.</li>
+          <li data-i18n="exp-li3">Outils repris et utilises en autonomie par l'equipe apres la fin du stage.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ── CONTACT ─────────────────────────────────────────────── -->
   <section id="contact">
     <div class="section-inner">
       <div class="section-label" data-i18n="section-contact-label">Me contacter</div>
       <h2 data-i18n="section-contact-title">Contact</h2>
-      <div class="contact-list">
-        <a class="contact-item" href="mailto:mchanard@hotmail.com"><span class="contact-icon">✉️</span><span>mchanard@hotmail.com</span></a>
-        <a class="contact-item" href="tel:+33744529534"><span class="contact-icon">📱</span><span>07 44 52 95 34</span></a>
-        <a class="contact-item" href="https://fr.linkedin.com/in/mchanard" target="_blank" rel="noreferrer"><span class="contact-icon">🔗</span><span>linkedin.com/in/mchanard</span></a>
-        <a class="contact-item" href="CHANARD_Marcel_CV.pdf" target="_blank"><span class="contact-icon">📄</span><span data-i18n="contact-cv">Télécharger mon CV</span></a>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:mchanard@hotmail.com">
+          <div class="contact-card-icon">✉️</div>
+          <div class="contact-card-label" data-i18n="contact-label-email">Email</div>
+          <div class="contact-card-value">mchanard@hotmail.com</div>
+        </a>
+        <a class="contact-card" href="tel:+33744529534">
+          <div class="contact-card-icon">📱</div>
+          <div class="contact-card-label" data-i18n="contact-label-phone">Telephone</div>
+          <div class="contact-card-value">07 44 52 95 34</div>
+        </a>
+        <a class="contact-card" href="https://fr.linkedin.com/in/mchanard" target="_blank" rel="noreferrer">
+          <div class="contact-card-icon">🔗</div>
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-value">linkedin.com/in/mchanard</div>
+        </a>
+        <a class="contact-card" href="CHANARD_Marcel_CV.pdf" target="_blank">
+          <div class="contact-card-icon">📄</div>
+          <div class="contact-card-label" data-i18n="contact-label-cv">Curriculum Vitae</div>
+          <div class="contact-card-value" data-i18n="contact-cv">Telecharger mon CV</div>
+        </a>
       </div>
     </div>
   </section>
@@ -399,87 +353,108 @@
 <a href="#" class="back-to-top" aria-label="Retour en haut">↑</a>
 
 <script>
-  const T = {
-    fr: {
-      'nav-home':'Accueil','nav-projects':'Projets','hero-portfolio':'Portfolio',
-      'hero-subtitle':'Étudiant en BUT GEA — parcours GC2F',
-      'box-who-label':'Profil','box-who-title':'Qui suis-je','box-who-text':'Mon parcours franco-américain et mes objectifs en finance.',
-      'box-edu-label':'Formation','box-edu-title':'Parcours scolaire','box-edu-text':'BUT GEA en cours, objectif grande école et Corporate Finance.',
-      'box-skills-label':'Savoir-faire','box-skills-title':'Compétences','box-skills-text':'Finance, Excel, bilinguisme et outils bureautiques.',
-      'box-exp-label':'Terrain','box-exp-title':'Expérience','box-exp-text':'Stage en agence immobilière — outils créés et utilisés en interne.',
-      'box-proj-label':'Travaux','box-proj-title':'Projets','box-proj-text':'Modèle DCF sur LVMH, analyse financière sur Excel.',
-      'box-contact-label':'Me contacter','box-contact-title':'Contact','box-contact-text':'Email, téléphone, LinkedIn et CV téléchargeable.',
-      'section-profile-label':'Profil','section-profile-title':'Qui suis-je',
-      'profile-p1':"Je m'appelle Marcel Chanard, j'ai 19 ans. Je suis né aux États-Unis, dans l'État de Washington, et je possède la double nationalité franco-américaine.",
-      'profile-p2':"J'ai vécu 16 ans aux États-Unis avant de venir m'installer en France. Cette double culture m'a permis de développer une réelle ouverture internationale et une capacité d'adaptation que j'applique aussi bien dans mes études que dans mes projets.",
-      'section-edu-label':'Formation','section-edu-title':'Parcours scolaire',
-      'edu-p1':"\u00c0 mon arrivée en France, j'ai intégré un lycée en voie générale, où j'ai effectué ma Première et ma Terminale avec mention Bien.",
-      'edu-p2':"Je suis actuellement en première année de Bachelor en Gestion des Entreprises et des Administrations (GEA). L'année prochaine, je poursuivrai le parcours Gestion Comptable, Fiscale et Financière (GC2F).",
-      'edu-p3':"Après l'obtention de mon BUT, je souhaite intégrer une grande école afin de me spécialiser en finance d'entreprise (Corporate Finance).",
-      'edu-p4':"Mon objectif est de travailler dans la finance — banque d'investissement, private equity ou corporate finance.",
-      'section-skills-label':'Savoir-faire','section-skills-title':'Compétences',
-      'skill-lang-title':'Langues','tag-fr':'Français — natif','tag-en':'Anglais — bilingue (C2)',
-      'skill-lang-note':"Né et scolarisé aux États-Unis jusqu'à 16 ans. Anglais courant à l'écrit comme à l'oral — prise de parole, rédaction académique et professionnelle.",
-      'skill-finance-title':'Analyse financière','tag-dcf':'Valorisation DCF','tag-wacc':'WACC &amp; CAPM',
-      'tag-states':'États financiers','tag-sensitivity':'Analyse de sensibilité','tag-scenarios':'Modélisation de scénarios',
-      'skill-excel-title':'Excel avancé','tag-models':'Modèles financiers','tag-formulas':'Formules complexes',
-      'tag-dashboard':'Tableaux de bord','tag-pivot':'Tableaux croisés dynamiques',
-      'skill-word-title':'Word','tag-layout':'Mise en page avancée','tag-reports':'Notes &amp; rapports structurés',
-      'skill-tools-title':'Bureautique &amp; Design',
-      'section-exp-label':'Terrain','section-exp-title':'Expérience',
-      'exp-company':'Stage — Agence Laforêt','exp-meta':'Immobilier \u00b7 2024',
-      'exp-li1':"Création de tableaux de suivi de l'activité pour la directrice et les collaborateurs.",
-      'exp-li2':"Automatisation des outils pour simplifier le pilotage interne au quotidien.",
-      'exp-li3':"Outils repris et utilisés en autonomie par l'équipe après la fin du stage.",
-      'section-contact-label':'Me contacter','section-contact-title':'Contact',
-      'contact-cv':'Télécharger mon CV',
-    },
-    en: {
-      'nav-home':'Home','nav-projects':'Projects','hero-portfolio':'Portfolio',
-      'hero-subtitle':'Business Management Student (BUT GEA) — Finance track',
-      'box-who-label':'Profile','box-who-title':'About me','box-who-text':'My Franco-American background and goals in finance.',
-      'box-edu-label':'Education','box-edu-title':'Education','box-edu-text':'Currently a 1st-year student, aiming for a top business school in Corporate Finance.',
-      'box-skills-label':'Skills','box-skills-title':'Skills','box-skills-text':'Finance, Excel, bilingualism and office tools.',
-      'box-exp-label':'Work','box-exp-title':'Experience','box-exp-text':'Internship at a real estate agency — tools built and used in-house.',
-      'box-proj-label':'Work','box-proj-title':'Projects','box-proj-text':'DCF model on LVMH, financial analysis in Excel.',
-      'box-contact-label':'Get in touch','box-contact-title':'Contact','box-contact-text':'Email, phone, LinkedIn and downloadable résumé.',
-      'section-profile-label':'Profile','section-profile-title':'About me',
-      'profile-p1':"My name is Marcel Chanard, I am 19 years old. I was born in the United States, in the state of Washington, and I hold dual French-American nationality.",
-      'profile-p2':"I lived in the United States for 16 years before moving to France. This bicultural background gave me a strong international perspective and an ability to adapt quickly — skills I apply both in my studies and personal projects.",
-      'section-edu-label':'Education','section-edu-title':'Education',
-      'edu-p1':"After moving to France, I completed my last two years of high school (Première and Terminale) with honours.",
-      'edu-p2':"I am currently in my first year of a Bachelor's degree in Business Management (BUT GEA). Next year, I will follow the Accounting, Tax and Finance track (GC2F).",
-      'edu-p3':"After completing my degree, I plan to apply to a top business school to specialise in Corporate Finance.",
-      'edu-p4':"My professional goal is to work in finance — investment banking, private equity or corporate finance.",
-      'section-skills-label':'Skills','section-skills-title':'Skills',
-      'skill-lang-title':'Languages','tag-fr':'French — native','tag-en':'English — bilingual (C2)',
-      'skill-lang-note':"Born and schooled in the United States until age 16. Fully fluent in English — written and spoken — including academic and professional contexts.",
-      'skill-finance-title':'Financial Analysis','tag-dcf':'DCF Valuation','tag-wacc':'WACC &amp; CAPM',
-      'tag-states':'Financial Statements','tag-sensitivity':'Sensitivity Analysis','tag-scenarios':'Scenario Modelling',
-      'skill-excel-title':'Advanced Excel','tag-models':'Financial models','tag-formulas':'Complex formulas',
-      'tag-dashboard':'Dashboards &amp; charts','tag-pivot':'Pivot tables',
-      'skill-word-title':'Word','tag-layout':'Advanced formatting','tag-reports':'Structured reports &amp; notes',
-      'skill-tools-title':'Office &amp; Design',
-      'section-exp-label':'Work','section-exp-title':'Experience',
-      'exp-company':'Internship — Laforêt Real Estate','exp-meta':'Real Estate \u00b7 2024',
-      'exp-li1':"Built activity tracking spreadsheets for the branch manager and the team.",
-      'exp-li2':"Automated reporting tools to simplify day-to-day operational monitoring.",
-      'exp-li3':"Tools continued to be used independently by the team after my internship ended.",
-      'section-contact-label':'Get in touch','section-contact-title':'Contact',
-      'contact-cv':'Download my résumé',
-    }
-  };
-  function setLang(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(el => { const k=el.dataset.i18n; if(T[lang]&&T[lang][k]!==undefined) el.innerHTML=T[lang][k]; });
-    document.getElementById('btn-fr').classList.toggle('active',lang==='fr');
-    document.getElementById('btn-en').classList.toggle('active',lang==='en');
-    document.documentElement.lang=lang; localStorage.setItem('lang',lang);
+var T = {
+  fr: {
+    'nav-home': 'Accueil', 'nav-projects': 'Projets', 'hero-portfolio': 'Portfolio',
+    'hero-subtitle': 'Etudiant en BUT GEA — parcours GC2F',
+    'box-who-label': 'Profil', 'box-who-title': 'Qui suis-je', 'box-who-text': 'Mon parcours franco-americain et mes objectifs en finance.',
+    'box-edu-label': 'Formation', 'box-edu-title': 'Parcours scolaire', 'box-edu-text': 'BUT GEA en cours, objectif grande ecole et Corporate Finance.',
+    'box-skills-label': 'Savoir-faire', 'box-skills-title': 'Competences', 'box-skills-text': 'Finance, Excel, bilinguisme et outils bureautiques.',
+    'box-exp-label': 'Terrain', 'box-exp-title': 'Experience', 'box-exp-text': 'Stage en agence immobiliere — outils crees et utilises en interne.',
+    'box-proj-label': 'Travaux', 'box-proj-title': 'Projets', 'box-proj-text': 'Modele DCF sur LVMH, analyse financiere sur Excel.',
+    'box-contact-label': 'Me contacter', 'box-contact-title': 'Contact', 'box-contact-text': 'Email, telephone, LinkedIn et CV telechargeable.',
+    'section-profile-label': 'Profil', 'section-profile-title': 'Qui suis-je',
+    'profile-p1': "Je m'appelle Marcel Chanard, j'ai 19 ans. Je suis ne aux Etats-Unis, dans l'Etat de Washington, et je possede la double nationalite franco-americaine.",
+    'profile-p2': "J'ai vecu 16 ans aux Etats-Unis avant de venir m'installer en France. Cette double culture m'a permis de developper une reelle ouverture internationale et une capacite d'adaptation.",
+    'section-edu-label': 'Formation', 'section-edu-title': 'Parcours scolaire',
+    'edu-p1': "A mon arrivee en France, j'ai integre un lycee en voie generale, ou j'ai effectue ma Premiere et ma Terminale avec mention Bien.",
+    'edu-p2': "Je suis actuellement en premiere annee de Bachelor en Gestion des Entreprises et des Administrations (GEA). L'annee prochaine, je poursuivrai le parcours GC2F.",
+    'edu-p3': "Apres l'obtention de mon BUT, je souhaite integrer une grande ecole afin de me specialiser en finance d'entreprise (Corporate Finance).",
+    'edu-p4': "Mon objectif est de travailler dans la finance — banque d'investissement, private equity ou corporate finance.",
+    'section-skills-label': 'Savoir-faire', 'section-skills-title': 'Competences',
+    'skill-lang-title': 'Langues', 'tag-fr': 'Francais — natif', 'tag-en': 'Anglais — bilingue (C2)',
+    'skill-lang-note': "Ne et scolarise aux Etats-Unis jusqu'a 16 ans. Anglais courant a l'ecrit comme a l'oral.",
+    'skill-finance-title': 'Analyse financiere', 'tag-dcf': 'Valorisation DCF', 'tag-wacc': 'WACC &amp; CAPM',
+    'tag-states': 'Etats financiers', 'tag-sensitivity': 'Analyse de sensibilite', 'tag-scenarios': 'Modelisation de scenarios',
+    'skill-excel-title': 'Excel avance', 'tag-models': 'Modeles financiers', 'tag-formulas': 'Formules complexes',
+    'tag-dashboard': 'Tableaux de bord', 'tag-pivot': 'Tableaux croises dynamiques',
+    'skill-word-title': 'Word', 'tag-layout': 'Mise en page avancee', 'tag-reports': 'Notes &amp; rapports structures',
+    'skill-tools-title': 'Bureautique &amp; Design',
+    'section-exp-label': 'Terrain', 'section-exp-title': 'Experience',
+    'exp-company': 'Stage — Agence Laforet', 'exp-meta': 'Immobilier · 2024',
+    'exp-li1': "Creation de tableaux de suivi de l'activite pour la directrice et les collaborateurs.",
+    'exp-li2': "Automatisation des outils pour simplifier le pilotage interne au quotidien.",
+    'exp-li3': "Outils repris et utilises en autonomie par l'equipe apres la fin du stage.",
+    'section-contact-label': 'Me contacter', 'section-contact-title': 'Contact',
+    'contact-label-email': 'Email', 'contact-label-phone': 'Telephone', 'contact-label-cv': 'Curriculum Vitae',
+    'contact-cv': 'Telecharger mon CV'
+  },
+  en: {
+    'nav-home': 'Home', 'nav-projects': 'Projects', 'hero-portfolio': 'Portfolio',
+    'hero-subtitle': 'Business Management Student (BUT GEA) — Finance track',
+    'box-who-label': 'Profile', 'box-who-title': 'About me', 'box-who-text': 'My Franco-American background and goals in finance.',
+    'box-edu-label': 'Education', 'box-edu-title': 'Education', 'box-edu-text': 'Currently a 1st-year student, aiming for a top business school in Corporate Finance.',
+    'box-skills-label': 'Skills', 'box-skills-title': 'Skills', 'box-skills-text': 'Finance, Excel, bilingualism and office tools.',
+    'box-exp-label': 'Work', 'box-exp-title': 'Experience', 'box-exp-text': 'Internship at a real estate agency — tools built and used in-house.',
+    'box-proj-label': 'Work', 'box-proj-title': 'Projects', 'box-proj-text': 'DCF model on LVMH, financial analysis in Excel.',
+    'box-contact-label': 'Get in touch', 'box-contact-title': 'Contact', 'box-contact-text': 'Email, phone, LinkedIn and downloadable resume.',
+    'section-profile-label': 'Profile', 'section-profile-title': 'About me',
+    'profile-p1': "My name is Marcel Chanard, I am 19 years old. I was born in the United States, in the state of Washington, and I hold dual French-American nationality.",
+    'profile-p2': "I lived in the United States for 16 years before moving to France. This bicultural background gave me a strong international perspective and an ability to adapt quickly.",
+    'section-edu-label': 'Education', 'section-edu-title': 'Education',
+    'edu-p1': "After moving to France, I completed my last two years of high school with honours.",
+    'edu-p2': "I am currently in my first year of a Bachelor's degree in Business Management (BUT GEA). Next year, I will follow the Accounting, Tax and Finance track (GC2F).",
+    'edu-p3': "After completing my degree, I plan to apply to a top business school to specialise in Corporate Finance.",
+    'edu-p4': "My professional goal is to work in finance — investment banking, private equity or corporate finance.",
+    'section-skills-label': 'Skills', 'section-skills-title': 'Skills',
+    'skill-lang-title': 'Languages', 'tag-fr': 'French — native', 'tag-en': 'English — bilingual (C2)',
+    'skill-lang-note': "Born and schooled in the United States until age 16. Fully fluent in English — written and spoken.",
+    'skill-finance-title': 'Financial Analysis', 'tag-dcf': 'DCF Valuation', 'tag-wacc': 'WACC &amp; CAPM',
+    'tag-states': 'Financial Statements', 'tag-sensitivity': 'Sensitivity Analysis', 'tag-scenarios': 'Scenario Modelling',
+    'skill-excel-title': 'Advanced Excel', 'tag-models': 'Financial models', 'tag-formulas': 'Complex formulas',
+    'tag-dashboard': 'Dashboards &amp; charts', 'tag-pivot': 'Pivot tables',
+    'skill-word-title': 'Word', 'tag-layout': 'Advanced formatting', 'tag-reports': 'Structured reports &amp; notes',
+    'skill-tools-title': 'Office &amp; Design',
+    'section-exp-label': 'Work', 'section-exp-title': 'Experience',
+    'exp-company': 'Internship — Laforet Real Estate', 'exp-meta': 'Real Estate · 2024',
+    'exp-li1': "Built activity tracking spreadsheets for the branch manager and the team.",
+    'exp-li2': "Automated reporting tools to simplify day-to-day operational monitoring.",
+    'exp-li3': "Tools continued to be used independently by the team after my internship ended.",
+    'section-contact-label': 'Get in touch', 'section-contact-title': 'Contact',
+    'contact-label-email': 'Email', 'contact-label-phone': 'Phone', 'contact-label-cv': 'Resume',
+    'contact-cv': 'Download my resume'
   }
-  const saved=localStorage.getItem('lang')||'fr'; if(saved==='en') setLang('en');
-  const btt=document.querySelector('.back-to-top');
-  window.addEventListener('scroll',()=>{ btt.classList.toggle('visible',window.scrollY>320); },{passive:true});
-  document.querySelectorAll('a[href^="#"]').forEach(l=>{ l.addEventListener('click',function(e){ const t=document.querySelector(this.getAttribute('href')); if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});} }); });
-<\/script>
+};
+function setLang(lang) {
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < els.length; i++) {
+    var key = els[i].getAttribute('data-i18n');
+    if (T[lang] && T[lang][key] !== undefined) els[i].innerHTML = T[lang][key];
+  }
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang;
+  try { localStorage.setItem('lang', lang); } catch(e) {}
+}
+(function() {
+  var saved = 'fr';
+  try { saved = localStorage.getItem('lang') || 'fr'; } catch(e) {}
+  if (saved === 'en') setLang('en');
+})();
+var btt = document.querySelector('.back-to-top');
+window.addEventListener('scroll', function() {
+  btt.classList.toggle('visible', window.scrollY > 320);
+}, { passive: true });
+var anchors = document.querySelectorAll('a[href^="#"]');
+for (var i = 0; i < anchors.length; i++) {
+  anchors[i].addEventListener('click', function(e) {
+    var href = this.getAttribute('href');
+    if (href === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    var target = document.querySelector(href);
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+}
+</script>
 
 </body>
 </html>
