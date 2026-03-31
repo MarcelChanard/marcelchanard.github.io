@@ -4,257 +4,355 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projets — Marcel Chanard</title>
+  <style>
+    :root {
+      --bg:           #04070c;
+      --panel:        #0b1120;
+      --panel-2:      #101829;
+      --text:         #eef2f8;
+      --muted:        #8fa4c0;
+      --soft:         #5d7490;
+      --line:         rgba(255,255,255,0.08);
+      --button:       #1a2d45;
+      --button-hover: #243d5c;
+      --accent:       #4a90e2;
+      --accent-dim:   rgba(74,144,226,0.12);
+      --accent-border:rgba(74,144,226,0.30);
+      --max:          1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+    }
+    a { color: inherit; text-decoration: none; }
 
-<style>
-:root{
-  --bg:#05080d;
-  --panel:#0d1420;
-  --panel-2:#111a28;
-  --text:#f5f7fb;
-  --muted:#b7c3d4;
-  --soft:#7f8fa3;
-  --line:rgba(255,255,255,0.10);
-  --button:#243246;
-  --button-hover:#31445d;
-  --max:1200px;
-}
+    /* ── Topbar ─────────────────────────────── */
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      width: 100%; border-bottom: 1px solid var(--line);
+      background: rgba(4,7,12,0.85);
+      backdrop-filter: blur(12px);
+    }
+    .topbar-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .brand { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+    .nav { display: flex; gap: 24px; align-items: center; }
+    .nav a { font-size: 15px; color: var(--muted); transition: color .15s; }
+    .nav a:hover { color: var(--text); }
+    .nav a.active { color: var(--text); }
 
-    *{ box-sizing:border-box; }
+    /* ── Language toggle ───────────────────── */
+    .lang-toggle {
+      display: flex; gap: 2px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 8px; padding: 3px; margin-left: 8px;
+    }
+    .lang-btn {
+      background: none; border: none; cursor: pointer;
+      padding: 4px 10px; border-radius: 6px;
+      font-size: 13px; font-weight: 700; color: var(--soft);
+      transition: all .15s;
+    }
+    .lang-btn.active { background: var(--accent-dim); color: var(--accent); }
+    .lang-btn:hover:not(.active) { color: var(--text); }
 
-    html{
-      scroll-behavior:smooth;
+    /* ── Back to top ───────────────────────── */
+    .back-to-top {
+      position: fixed; right: 24px; bottom: 28px;
+      padding: 10px 15px; border-radius: 10px;
+      background: var(--panel); border: 1px solid var(--line);
+      color: var(--muted); font-size: 14px; font-weight: 600;
+      backdrop-filter: blur(8px);
+      transition: all .18s; z-index: 50;
+    }
+    .back-to-top:hover { border-color: var(--accent-border); color: var(--accent); transform: translateY(-2px); }
+
+    /* ── Page ────────────────────────────────── */
+    .page {
+      max-width: var(--max); margin: 0 auto;
+      padding: 64px 24px 100px;
+    }
+    .page-header { margin-bottom: 52px; text-align: center; }
+    .page-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.05; margin: 0; font-weight: 800; letter-spacing: -0.03em;
+    }
+    .page-sub {
+      font-size: 16px; color: var(--muted); margin-top: 12px;
     }
 
-    body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:system-ui,-apple-system,Helvetica,Arial,sans-serif;
-}
-
-    a{
-      color:inherit;
-      text-decoration:none;
+    /* ── Projects grid ───────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
     }
 
-    .topbar{
-      width:100%;
-      border-bottom:1px solid var(--line);
-      background:rgba(255,255,255,0.02);
+    /* ── Project card ────────────────────────── */
+    .project-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color .2s, transform .2s;
     }
-
-    .topbar-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:26px 24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
+    .project-card:hover {
+      border-color: var(--accent-border);
+      transform: translateY(-3px);
     }
+    .project-card.coming-soon { opacity: 0.6; }
+    .project-card.coming-soon:hover { transform: none; border-color: var(--line); }
 
-    .brand{
-      font-size:20px;
-      font-weight:700;
+    .project-image {
+      width: 100%; aspect-ratio: 16 / 9;
+      object-fit: cover; display: block;
+      background: var(--panel-2);
     }
-
-    .nav{
-      display:flex;
-      gap:28px;
-      align-items:center;
+    .project-content {
+      padding: 22px 24px 26px;
+      display: flex; flex-direction: column; flex: 1;
     }
-
-    .nav a{
-      font-size:18px;
-      color:var(--text);
-      opacity:0.95;
+    .badge {
+      display: inline-block; align-self: flex-start;
+      margin-bottom: 14px; padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px; font-weight: 700;
     }
-
-    .page{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:70px 24px 90px;
+    .badge.active {
+      background: var(--accent-dim); border: 1px solid var(--accent-border);
+      color: var(--accent);
     }
-
-    h1{
-      margin:0 0 50px;
-      text-align:center;
-      font-size:clamp(44px,5vw,72px);
-      line-height:1.05;
-      font-weight:800;
-      letter-spacing:-0.03em;
+    .badge.soon {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--line);
+      color: var(--soft);
     }
-
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
-      gap:26px;
+    .project-title {
+      font-size: 20px; line-height: 1.25; font-weight: 700;
+      margin: 0 0 10px;
     }
-
-    .project-card{
-  background: rgba(255,255,255,0.02);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:16px;
-  padding:26px;
-}
-
-    .project-image{
-      width:100%;
-      aspect-ratio:16 / 9;
-      object-fit:cover;
-      display:block;
-      background:#0b1220;
+    .project-text {
+      font-size: 14px; line-height: 1.75; color: var(--muted);
+      flex: 1; margin: 0;
     }
-
-    .project-content{
-      padding:22px 22px 24px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
-      text-align:left;
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;
     }
-
-    .badge{
-      display:inline-block;
-      align-self:flex-start;
-      margin-bottom:14px;
-      padding:7px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.06);
-      border:1px solid var(--line);
-      font-size:13px;
-      font-weight:700;
-      color:var(--muted);
+    .ptag {
+      padding: 3px 10px; border-radius: 999px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--line);
+      color: var(--soft); font-size: 12px; font-weight: 500;
     }
-
-    .project-title{
-      margin:0 0 14px;
-      font-size:24px;
-      line-height:1.25;
-      font-weight:750;
+    .button-row {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px;
     }
-
-    .project-text{
-      margin:0;
-      font-size:18px;
-      line-height:1.75;
-      color:var(--muted);
-      flex:1;
+    .button {
+      display: inline-block; padding: 9px 16px; border-radius: 9px;
+      background: var(--button); border: 1px solid var(--line);
+      color: white; font-size: 14px; font-weight: 600;
+      transition: background .18s, transform .18s, border-color .18s;
     }
+    .button:hover { background: var(--button-hover); transform: translateY(-2px); border-color: var(--accent-border); }
 
-    .button-row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:22px;
-    }
-
-    .button{
-      display:inline-block;
-      padding:12px 18px;
-      border-radius:12px;
-      background:var(--button);
-      border:1px solid var(--line);
-      color:white;
-      font-size:16px;
-      font-weight:600;
-      transition:background .18s ease, transform .18s ease;
-    }
-
-    .button:hover{
-      background:var(--button-hover);
-      transform:translateY(-2px);
-    }
-
-    @media (max-width: 850px){
-      .projects-grid{
-        grid-template-columns:1fr;
-      }
+    /* ── Media ─────────────────────────── */
+    @media (max-width: 720px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .topbar-inner { flex-wrap: wrap; justify-content: center; }
     }
   </style>
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">Marcel Chanard</div>
-      <nav class="nav">
-        <a href="index.html">Accueil</a>
-        <a href="projets.html">Projets</a>
-      </nav>
-    </div>
-  </header>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Marcel Chanard</div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav-home">Accueil</a>
+      <a href="projets.html" class="active" data-i18n="nav-projects">Projets</a>
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-  <main class="page">
-    <h1>Mes projets</h1>
+<main class="page" id="top">
 
-    <div class="projects-grid">
+  <div class="page-header">
+    <div class="page-eyebrow" data-i18n="page-eyebrow">Finance &amp; Analyse</div>
+    <h1 data-i18n="page-title">Mes projets</h1>
+    <p class="page-sub" data-i18n="page-sub">Modèles financiers construits à titre personnel, à partir de données publiques.</p>
+  </div>
 
-      <article class="project-card">
-        <img class="project-image" src="images/analysefinanciere.png" alt="Analyse financière" />
-        <div class="project-content">
-          <div class="badge">Projet</div>
-          <div class="project-title">Analyse financière</div>
-          <p class="project-text">
-            Analyse financière réalisée comme projet personnel, avec étude des performances,
-            lecture des états financiers et mise en évidence d’indicateurs clés.
-          </p>
-          <div class="button-row">
-            <a class="button" href="Marcel_CHANARD_Projet analyse financiere.xlsx" target="_blank">Fichier Excel</a>
-            <a class="button" href="Marcel_CHANARD_Note_Analyse_Financiere.pdf" target="_blank">Note PDF</a>
-          </div>
+  <div class="projects-grid">
+
+    <!-- ── Analyse financière ──────────────────── -->
+    <article class="project-card">
+      <img class="project-image" src="images/analysefinanciere.png" alt="Analyse financière" />
+      <div class="project-content">
+        <span class="badge active" data-i18n="badge-project">Projet</span>
+        <div class="project-title" data-i18n="proj1-title">Modèle d'analyse financière</div>
+        <p class="project-text" data-i18n="proj1-text">
+          Modèle Excel de projection financière sur 5 ans pour une entreprise B2B, avec trois scénarios (Base / Optimiste / Pessimiste), calcul du free cash flow et tableau de bord de synthèse.
+        </p>
+        <div class="project-tags">
+          <span class="ptag">Excel</span>
+          <span class="ptag" data-i18n="ptag-scenarios">Scénarios</span>
+          <span class="ptag">FCF</span>
+          <span class="ptag">EBITDA</span>
         </div>
-      </article>
-
-      <article class="project-card">
-        <img class="project-image" src="images/dcflvmh.png" alt="DCF de LVMH + Comparables (Hermes & Kering)" />
-        <div class="project-content">
-          <div class="badge">Projet</div>
-          <div class="project-title">DCF de LVMH + Comparables (Hermes & Kering)</div>
-          <p class="project-text">
-            Valorisation de LVMH par DCF sur 5 ans : calcul du WACC, projections de FCF,
-            valeur terminale et analyse de sensibilité. EV implicite de 250,5 Md€ → 491 €/action.
-          </p>
-          <div class="button-row">
-            <a class="button" href="Marcel_CHANARD_DCF_LVMH.xlsx">Fichier Excel</a>
-            <a class="button" href="Marcel_CHANARD_Note_DCF_LVMH.pdf">Note PDF</a>
-          </div>
+        <div class="button-row">
+          <a class="button" href="Marcel_CHANARD_Projet analyse financiere.xlsx" target="_blank" data-i18n="btn-excel">Fichier Excel</a>
+          <a class="button" href="Marcel_CHANARD_Note_Analyse_Financiere.pdf" target="_blank" data-i18n="btn-note">Note PDF</a>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <article class="project-card">
-        <img class="project-image" src="images/ipochatgpt.png" alt="IPO de OpenAI" />
-        <div class="project-content">
-          <div class="badge">À venir</div>
-          <div class="project-title">IPO de OpenAI</div>
-          <p class="project-text">
-            Projet futur autour d’une introduction en bourse, avec réflexion sur la valorisation,
-            le positionnement stratégique et les perspectives de marché.
-          </p>
-          <div class="button-row">
-            <a class="button" href="#">Fichier Excel</a>
-            <a class="button" href="#">Note PDF</a>
-          </div>
+    <!-- ── DCF LVMH ────────────────────────────── -->
+    <article class="project-card">
+      <img class="project-image" src="images/dcflvmh.png" alt="DCF LVMH" />
+      <div class="project-content">
+        <span class="badge active" data-i18n="badge-project">Projet</span>
+        <div class="project-title" data-i18n="proj2-title">DCF de LVMH</div>
+        <p class="project-text" data-i18n="proj2-text">
+          Valorisation de LVMH par DCF sur 5 ans (2026–2030) à partir de données publiques. Calcul du WACC (7,71 %), modélisation des FCF, valeur terminale et analyse de sensibilité. EV implicite de 250,5 Md€ → 491 €/action.
+        </p>
+        <div class="project-tags">
+          <span class="ptag">DCF</span>
+          <span class="ptag">WACC</span>
+          <span class="ptag">LVMH</span>
+          <span class="ptag" data-i18n="ptag-valuation">Valorisation</span>
         </div>
-      </article>
-
-      <article class="project-card">
-        <img class="project-image" src="images/lbocarrefour.png" alt="LBO de Carrefour" />
-        <div class="project-content">
-          <div class="badge">À venir</div>
-          <div class="project-title">LBO de Carrefour</div>
-          <p class="project-text">
-            Projet futur consacré à une logique de leveraged buyout, avec structure de financement,
-            création de valeur et analyse de rentabilité.
-          </p>
-          <div class="button-row">
-            <a class="button" href="#">Fichier Excel</a>
-            <a class="button" href="#">Note PDF</a>
-          </div>
+        <div class="button-row">
+          <a class="button" href="Marcel_CHANARD_DCF_LVMH.xlsx" target="_blank" data-i18n="btn-excel">Fichier Excel</a>
+          <a class="button" href="Marcel_CHANARD_Note_DCF_LVMH.pdf" target="_blank" data-i18n="btn-note">Note PDF</a>
         </div>
-      </article>
+      </div>
+    </article>
 
-    </div>
-  </main>
+    <!-- ── IPO OpenAI ──────────────────────────── -->
+    <article class="project-card coming-soon">
+      <img class="project-image" src="images/ipochatgpt.png" alt="IPO OpenAI" />
+      <div class="project-content">
+        <span class="badge soon" data-i18n="badge-soon">À venir</span>
+        <div class="project-title" data-i18n="proj3-title">IPO de OpenAI</div>
+        <p class="project-text" data-i18n="proj3-text">
+          Analyse d'une introduction en bourse fictive : valorisation, positionnement stratégique et perspectives de marché.
+        </p>
+        <div class="project-tags">
+          <span class="ptag">IPO</span>
+          <span class="ptag" data-i18n="ptag-valuation">Valorisation</span>
+          <span class="ptag">Tech</span>
+        </div>
+        <div class="button-row">
+          <a class="button" href="#" data-i18n="btn-excel">Fichier Excel</a>
+          <a class="button" href="#" data-i18n="btn-note">Note PDF</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── LBO Carrefour ────────────────────────── -->
+    <article class="project-card coming-soon">
+      <img class="project-image" src="images/lbocarrefour.png" alt="LBO Carrefour" />
+      <div class="project-content">
+        <span class="badge soon" data-i18n="badge-soon">À venir</span>
+        <div class="project-title" data-i18n="proj4-title">LBO de Carrefour</div>
+        <p class="project-text" data-i18n="proj4-text">
+          Modèle de leveraged buyout : structure de financement, effets de levier, création de valeur et analyse de rentabilité.
+        </p>
+        <div class="project-tags">
+          <span class="ptag">LBO</span>
+          <span class="ptag" data-i18n="ptag-leverage">Effet de levier</span>
+          <span class="ptag">Carrefour</span>
+        </div>
+        <div class="button-row">
+          <a class="button" href="#" data-i18n="btn-excel">Fichier Excel</a>
+          <a class="button" href="#" data-i18n="btn-note">Note PDF</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<a href="#top" class="back-to-top" data-i18n="back-top">↑ Haut de page</a>
+
+<script>
+  const T = {
+    fr: {
+      'nav-home':       'Accueil',
+      'nav-projects':   'Projets',
+      'page-eyebrow':   'Finance &amp; Analyse',
+      'page-title':     'Mes projets',
+      'page-sub':       'Modèles financiers construits à titre personnel, à partir de données publiques.',
+      'badge-project':  'Projet',
+      'badge-soon':     'À venir',
+      'proj1-title':    "Modèle d'analyse financière",
+      'proj1-text':     "Modèle Excel de projection financière sur 5 ans pour une entreprise B2B, avec trois scénarios (Base / Optimiste / Pessimiste), calcul du free cash flow et tableau de bord de synthèse.",
+      'proj2-title':    'DCF de LVMH',
+      'proj2-text':     "Valorisation de LVMH par DCF sur 5 ans (2026–2030) à partir de données publiques. Calcul du WACC (7,71 %), modélisation des FCF, valeur terminale et analyse de sensibilité. EV implicite de 250,5 Md€ → 491 €/action.",
+      'proj3-title':    'IPO de OpenAI',
+      'proj3-text':     "Analyse d'une introduction en bourse fictive : valorisation, positionnement stratégique et perspectives de marché.",
+      'proj4-title':    'LBO de Carrefour',
+      'proj4-text':     "Modèle de leveraged buyout : structure de financement, effets de levier, création de valeur et analyse de rentabilité.",
+      'ptag-scenarios': 'Scénarios',
+      'ptag-valuation': 'Valorisation',
+      'ptag-leverage':  'Effet de levier',
+      'btn-excel':      'Fichier Excel',
+      'btn-note':       'Note PDF',
+      'back-top':       '↑ Haut de page',
+    },
+    en: {
+      'nav-home':       'Home',
+      'nav-projects':   'Projects',
+      'page-eyebrow':   'Finance &amp; Analysis',
+      'page-title':     'My projects',
+      'page-sub':       'Financial models built independently from public data.',
+      'badge-project':  'Project',
+      'badge-soon':     'Coming soon',
+      'proj1-title':    'Financial Analysis Model',
+      'proj1-text':     '5-year financial projection model for a B2B company in Excel, with three scenarios (Base / Optimistic / Pessimistic), free cash flow calculation and a summary dashboard.',
+      'proj2-title':    'DCF Valuation — LVMH',
+      'proj2-text':     '5-year DCF valuation of LVMH (2026–2030) using public data. WACC calculation (7.71%), FCF modelling, terminal value and sensitivity analysis. Implied EV of €250.5Bn → €491/share.',
+      'proj3-title':    'IPO — OpenAI',
+      'proj3-text':     'Analysis of a hypothetical IPO: valuation, strategic positioning and market outlook.',
+      'proj4-title':    'LBO — Carrefour',
+      'proj4-text':     'Leveraged buyout model: financing structure, leverage effects, value creation and return analysis.',
+      'ptag-scenarios': 'Scenarios',
+      'ptag-valuation': 'Valuation',
+      'ptag-leverage':  'Leverage',
+      'btn-excel':      'Excel File',
+      'btn-note':       'PDF Note',
+      'back-top':       '↑ Back to top',
+    }
+  };
+
+  function setLang(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (T[lang] && T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+    });
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    localStorage.setItem('lang', lang);
+  }
+
+  const saved = localStorage.getItem('lang') || 'fr';
+  if (saved === 'en') setLang('en');
+</script>
 
 </body>
 </html>
