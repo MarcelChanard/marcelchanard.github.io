@@ -59,45 +59,21 @@
       display: flex; align-items: center; justify-content: center;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      transition: opacity .25s, transform .2s, border-color .2s, color .2s;
       opacity: 0; pointer-events: none;
+      transition: opacity .25s, transform .2s, border-color .2s, color .2s;
+      text-decoration: none;
     }
     .back-to-top.visible { opacity: 1; pointer-events: auto; }
     .back-to-top:hover { border-color: var(--accent-border); color: var(--accent); transform: translateY(-3px); }
-    .page {
-      max-width: var(--max); margin: 0 auto;
-      padding: 80px 28px 120px;
-    }
-    .page-header {
-      margin-bottom: 72px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 56px;
-    }
-    .page-eyebrow {
-      font-size: 11px; font-weight: 700; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 14px; opacity: .8;
-    }
-    h1 {
-      font-size: clamp(38px, 5vw, 64px);
-      line-height: 1.03; margin: 0 0 14px; font-weight: 800; letter-spacing: -0.04em;
-    }
+    .page { max-width: var(--max); margin: 0 auto; padding: 80px 28px 120px; }
+    .page-header { margin-bottom: 72px; border-bottom: 1px solid var(--line); padding-bottom: 56px; }
+    .page-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; opacity: .8; }
+    h1 { font-size: clamp(38px, 5vw, 64px); line-height: 1.03; margin: 0 0 14px; font-weight: 800; letter-spacing: -0.04em; }
     .page-sub { font-size: 15px; color: var(--muted); letter-spacing: -0.01em; }
     .projects-list { display: flex; flex-direction: column; }
-    .project-row {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 48px; padding: 52px 0;
-      border-top: 1px solid var(--line);
-      align-items: start;
-    }
+    .project-row { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding: 52px 0; border-top: 1px solid var(--line); align-items: start; }
     .project-row.coming-soon { opacity: 0.45; }
-    .badge {
-      display: inline-block;
-      padding: 3px 10px; border-radius: 999px;
-      font-size: 11px; font-weight: 700; letter-spacing: .04em;
-      margin-bottom: 16px;
-    }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 16px; }
     .badge.active { background: var(--accent-dim); border: 1px solid var(--accent-border); color: var(--accent); }
     .badge.soon { background: rgba(255,255,255,0.04); border: 1px solid var(--line); color: var(--soft); }
     .project-title { font-size: 20px; line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 10px; }
@@ -131,18 +107,17 @@
   <div class="page-header">
     <div class="page-eyebrow" data-i18n="page-eyebrow">Finance &amp; Analyse</div>
     <h1 data-i18n="page-title">Mes projets</h1>
-    <p class="page-sub" data-i18n="page-sub">Modèles financiers construits à titre personnel, à partir de données publiques.</p>
+    <p class="page-sub" data-i18n="page-sub">Modeles financiers construits a titre personnel, a partir de donnees publiques.</p>
   </div>
   <div class="projects-list">
     <div class="project-row">
       <div class="project-meta">
         <span class="badge active" data-i18n="badge-project">Projet</span>
-        <div class="project-title" data-i18n="proj1-title">Modèle d'analyse financière</div>
-        <div class="project-tags">
-          <span class="ptag">Excel</span><span class="ptag" data-i18n="ptag-scenarios">Scénarios</span><span class="ptag">FCF</span><span class="ptag">EBITDA</span>
-        </div>
-      </div>      <div class="project-body">
-        <p class="project-text" data-i18n="proj1-text">Modèle Excel de projection financière sur 5 ans pour une entreprise B2B, avec trois scénarios (Base / Optimiste / Pessimiste), calcul du free cash flow et tableau de bord de synthèse.</p>
+        <div class="project-title" data-i18n="proj1-title">Modele d'analyse financiere</div>
+        <div class="project-tags"><span class="ptag">Excel</span><span class="ptag" data-i18n="ptag-scenarios">Scenarios</span><span class="ptag">FCF</span><span class="ptag">EBITDA</span></div>
+      </div>
+      <div class="project-body">
+        <p class="project-text" data-i18n="proj1-text">Modele Excel de projection financiere sur 5 ans pour une entreprise B2B, avec trois scenarios (Base / Optimiste / Pessimiste), calcul du free cash flow et tableau de bord de synthese.</p>
         <div class="button-row">
           <a class="button" href="Marcel_CHANARD_Projet analyse financiere.xlsx" target="_blank" data-i18n="btn-excel">Fichier Excel</a>
           <a class="button" href="Marcel_CHANARD_Note_Analyse_Financiere.pdf" target="_blank" data-i18n="btn-note">Note PDF</a>
@@ -153,99 +128,94 @@
       <div class="project-meta">
         <span class="badge active" data-i18n="badge-project">Projet</span>
         <div class="project-title" data-i18n="proj2-title">DCF de LVMH</div>
-        <div class="project-tags">
-          <span class="ptag">DCF</span><span class="ptag">WACC</span><span class="ptag">LVMH</span><span class="ptag" data-i18n="ptag-valuation">Valorisation</span>
-        </div>
+        <div class="project-tags"><span class="ptag">DCF</span><span class="ptag">WACC</span><span class="ptag">LVMH</span><span class="ptag" data-i18n="ptag-valuation">Valorisation</span></div>
       </div>
       <div class="project-body">
-        <p class="project-text" data-i18n="proj2-text">Valorisation de LVMH par DCF sur 5 ans (2026–2030) à partir de données publiques. Calcul du WACC (7,71 %), modélisation des FCF, valeur terminale et analyse de sensibilité. EV implicite de 250,5 Md€ → 491 €/action.</p>
+        <p class="project-text" data-i18n="proj2-text">Valorisation de LVMH par DCF sur 5 ans (2026-2030) a partir de donnees publiques. Calcul du WACC (7,71%), modelisation des FCF, valeur terminale et analyse de sensibilite. EV implicite de 250,5 Md€ → 491 €/action.</p>
         <div class="button-row">
           <a class="button" href="Marcel_CHANARD_DCF_LVMH.xlsx" target="_blank" data-i18n="btn-excel">Fichier Excel</a>
           <a class="button" href="Marcel_CHANARD_Note_DCF_LVMH.pdf" target="_blank" data-i18n="btn-note">Note PDF</a>
         </div>
       </div>
     </div>
-    
-      <div class="project-row">
-        <div class="project-meta">
-          <span class="badge active" data-i18n="badge-project">Projet</span>
-          <div class="project-title" data-i18n="proj5-title">Finance News TTS</div>
-          <div class="project-tags">
-            <span class="ptag">Python</span><span class="ptag">Coqui TTS</span><span class="ptag">RSS</span><span class="ptag" data-i18n="ptag-automation">Automatisation</span>
-          </div>
-        </div>
-        <div class="project-body">
-          <p class="project-text" data-i18n="proj5-text">Script Python qui récupère les titres financiers du jour via des flux RSS (Reuters, Yahoo Finance, CNBC), construit un script audio et le convertit en fichier .wav avec Coqui TTS — entièrement gratuit et local. Lancé automatiquement chaque matin à 6h.</p>
-          <div class="button-row">
-            <a class="button" href="https://github.com/MarcelChanard/finance-news-tts" target="_blank" data-i18n="btn-github">GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-row coming-soon">
+    <div class="project-row coming-soon">
       <div class="project-meta">
-        <span class="badge soon" data-i18n="badge-soon">À venir</span>
+        <span class="badge soon" data-i18n="badge-soon">A venir</span>
         <div class="project-title" data-i18n="proj3-title">IPO de OpenAI</div>
-        <div class="project-tags">
-          <span class="ptag">IPO</span><span class="ptag" data-i18n="ptag-valuation">Valorisation</span><span class="ptag">Tech</span>
-        </div>
+        <div class="project-tags"><span class="ptag">IPO</span><span class="ptag" data-i18n="ptag-valuation">Valorisation</span><span class="ptag">Tech</span></div>
       </div>
       <div class="project-body">
-        <p class="project-text" data-i18n="proj3-text">Analyse d'une introduction en bourse fictive : valorisation, positionnement stratégique et perspectives de marché.</p>
+        <p class="project-text" data-i18n="proj3-text">Analyse d'une introduction en bourse fictive : valorisation, positionnement strategique et perspectives de marche.</p>
       </div>
     </div>
     <div class="project-row coming-soon">
       <div class="project-meta">
-        <span class="badge soon" data-i18n="badge-soon">À venir</span>
+        <span class="badge soon" data-i18n="badge-soon">A venir</span>
         <div class="project-title" data-i18n="proj4-title">LBO de Carrefour</div>
-        <div class="project-tags">
-          <span class="ptag">LBO</span><span class="ptag" data-i18n="ptag-leverage">Effet de levier</span><span class="ptag">Carrefour</span>
-        </div>
+        <div class="project-tags"><span class="ptag">LBO</span><span class="ptag" data-i18n="ptag-leverage">Effet de levier</span><span class="ptag">Carrefour</span></div>
       </div>
       <div class="project-body">
-        <p class="project-text" data-i18n="proj4-text">Modèle de leveraged buyout : structure de financement, effets de levier, création de valeur et analyse de rentabilité.</p>
+        <p class="project-text" data-i18n="proj4-text">Modele de leveraged buyout : structure de financement, effets de levier, creation de valeur et analyse de rentabilite.</p>
       </div>
     </div>
   </div>
 </main>
 <a href="#top" class="back-to-top" aria-label="Retour en haut">↑</a>
 <script>
-  const T = {
-    fr: {
-      'nav-home':'Accueil','nav-projects':'Projets','page-eyebrow':'Finance &amp; Analyse','page-title':'Mes projets',
-      'page-sub':'Modèles financiers construits à titre personnel, à partir de données publiques.',
-      'badge-project':'Projet','badge-soon':'À venir',
-      'proj1-title':"Modèle d'analyse financière",'proj1-text':'Modèle Excel de projection financière sur 5 ans pour une entreprise B2B, avec trois scénarios (Base / Optimiste / Pessimiste), calcul du free cash flow et tableau de bord de synthèse.',
-      'proj2-title':'DCF de LVMH','proj2-text':'Valorisation de LVMH par DCF sur 5 ans (2026–2030) à partir de données publiques. Calcul du WACC (7,71 %), modélisation des FCF, valeur terminale et analyse de sensibilité. EV implicite de 250,5 Md€ → 491 €/action.',
-      'proj3-title':'IPO de OpenAI','proj3-text':"Analyse d'une introduction en bourse fictive : valorisation, positionnement stratégique et perspectives de marché.",
-      'proj4-title':'LBO de Carrefour','proj4-text':'Modèle de leveraged buyout : structure de financement, effets de levier, création de valeur et analyse de rentabilité.', 'proj5-title':'Finance News TTS','proj5-text':"Script Python qui récupère les titres financiers du jour via des flux RSS (Reuters, Yahoo Finance, CNBC), construit un script audio et le convertit en fichier .wav avec Coqui TTS — entièrement gratuit et local. Lancé automatiquement chaque matin à 6h.",'ptag-automation':'Automatisation','btn-github':'GitHub',,
-      'ptag-scenarios':'Scénarios','ptag-valuation':'Valorisation','ptag-leverage':'Effet de levier','btn-excel':'Fichier Excel','btn-note':'Note PDF'
-    },
-    en: {
-      'nav-home':'Home','nav-projects':'Projects','page-eyebrow':'Finance &amp; Analysis','page-title':'My projects',
-      'page-sub':'Financial models built independently from public data.',
-      'badge-project':'Project','badge-soon':'Coming soon',
-      'proj1-title':'Financial Analysis Model','proj1-text':'5-year financial projection model for a B2B company in Excel, with three scenarios (Base / Optimistic / Pessimistic), free cash flow calculation and a summary dashboard.',
-      'proj2-title':'DCF Valuation — LVMH','proj2-text':'5-year DCF valuation of LVMH (2026–2030) using public data. WACC calculation (7.71%), FCF modelling, terminal value and sensitivity analysis. Implied EV of €250.5Bn → €491/share.',
-      'proj3-title':'IPO — OpenAI','proj3-text':'Analysis of a hypothetical IPO: valuation, strategic positioning and market outlook.',
-      'proj4-title':'LBO — Carrefour','proj4-text':'Leveraged buyout model: financing structure, leverage effects, value creation and return analysis.', 'proj5-title':'Finance News TTS','proj5-text':"Python script that fetches daily finance headlines from RSS feeds (Reuters, Yahoo Finance, CNBC), builds a spoken script, and converts it to a .wav file with Coqui TTS — fully free and runs locally. Triggered automatically every morning at 6am.",'ptag-automation':'Automation','btn-github':'GitHub',,
-      'ptag-scenarios':'Scenarios','ptag-valuation':'Valuation','ptag-leverage':'Leverage','btn-excel':'Excel File','btn-note':'PDF Note'
-    }
-  };
-  function setLang(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
-      if (T[lang] && T[lang][key] !== undefined) el.innerHTML = T[lang][key];
-    });
-    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.documentElement.lang = lang;
-    localStorage.setItem('lang', lang);
+var T = {
+  fr: {
+    'nav-home': 'Accueil', 'nav-projects': 'Projets',
+    'page-eyebrow': 'Finance &amp; Analyse', 'page-title': 'Mes projets',
+    'page-sub': 'Modeles financiers construits a titre personnel, a partir de donnees publiques.',
+    'badge-project': 'Projet', 'badge-soon': 'A venir',
+    'proj1-title': "Modele d'analyse financiere",
+    'proj1-text': 'Modele Excel de projection financiere sur 5 ans pour une entreprise B2B, avec trois scenarios (Base / Optimiste / Pessimiste), calcul du free cash flow et tableau de bord de synthese.',
+    'proj2-title': 'DCF de LVMH',
+    'proj2-text': 'Valorisation de LVMH par DCF sur 5 ans (2026-2030) a partir de donnees publiques. Calcul du WACC (7,71%), modelisation des FCF, valeur terminale et analyse de sensibilite. EV implicite de 250,5 Md€ → 491 €/action.',
+    'proj3-title': 'IPO de OpenAI',
+    'proj3-text': "Analyse d'une introduction en bourse fictive : valorisation, positionnement strategique et perspectives de marche.",
+    'proj4-title': 'LBO de Carrefour',
+    'proj4-text': 'Modele de leveraged buyout : structure de financement, effets de levier, creation de valeur et analyse de rentabilite.',
+    'ptag-scenarios': 'Scenarios', 'ptag-valuation': 'Valorisation', 'ptag-leverage': 'Effet de levier',
+    'btn-excel': 'Fichier Excel', 'btn-note': 'Note PDF'
+  },
+  en: {
+    'nav-home': 'Home', 'nav-projects': 'Projects',
+    'page-eyebrow': 'Finance &amp; Analysis', 'page-title': 'My projects',
+    'page-sub': 'Financial models built independently from public data.',
+    'badge-project': 'Project', 'badge-soon': 'Coming soon',
+    'proj1-title': 'Financial Analysis Model',
+    'proj1-text': '5-year financial projection model for a B2B company in Excel, with three scenarios (Base / Optimistic / Pessimistic), free cash flow calculation and a summary dashboard.',
+    'proj2-title': 'DCF Valuation — LVMH',
+    'proj2-text': '5-year DCF valuation of LVMH (2026-2030) using public data. WACC calculation (7.71%), FCF modelling, terminal value and sensitivity analysis. Implied EV of €250.5Bn → €491/share.',
+    'proj3-title': 'IPO — OpenAI',
+    'proj3-text': 'Analysis of a hypothetical IPO: valuation, strategic positioning and market outlook.',
+    'proj4-title': 'LBO — Carrefour',
+    'proj4-text': 'Leveraged buyout model: financing structure, leverage effects, value creation and return analysis.',
+    'ptag-scenarios': 'Scenarios', 'ptag-valuation': 'Valuation', 'ptag-leverage': 'Leverage',
+    'btn-excel': 'Excel File', 'btn-note': 'PDF Note'
   }
-  const saved = localStorage.getItem('lang') || 'fr';
+};
+function setLang(lang) {
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < els.length; i++) {
+    var key = els[i].getAttribute('data-i18n');
+    if (T[lang] && T[lang][key] !== undefined) els[i].innerHTML = T[lang][key];
+  }
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang;
+  try { localStorage.setItem('lang', lang); } catch(e) {}
+}
+(function() {
+  var saved = 'fr';
+  try { saved = localStorage.getItem('lang') || 'fr'; } catch(e) {}
   if (saved === 'en') setLang('en');
-  const btt = document.querySelector('.back-to-top');
-  window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 200); }, { passive: true });
+})();
+var btt = document.querySelector('.back-to-top');
+window.addEventListener('scroll', function() {
+  btt.classList.toggle('visible', window.scrollY > 200);
+}, { passive: true });
 </script>
 </body>
 </html>
