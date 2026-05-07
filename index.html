@@ -223,6 +223,32 @@
       .hero { padding: 60px 20px; }
     }
     @media (max-width: 480px) { .hero-grid { grid-template-columns: 1fr; } }
+
+                            /* Professional competences cards */
+.pro-skills-block {
+  padding: 26px 0; border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.pro-skills-header {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
+}
+.pro-skill-card {
+  padding: 14px 18px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.pro-skill-card-top {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+}
+.ue-badge {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); opacity: .85;
+  background: var(--accent-dim); border: 1px solid var(--accent-border);
+  padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+}
+.pro-skill-card-title { font-size: 13.5px; font-weight: 700; color: var(--text); }
+.pro-skill-card-desc { font-size: 13px; color: var(--muted); margin: 0 0 5px; line-height: 1.65; }
+.pro-skill-card-example { font-size: 12px; color: var(--soft); margin: 0; line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -362,6 +388,37 @@
           </div>
         </div>
       </div>
+      <!-- Compétences professionnelles BUT -->
+<div class="pro-skills-block">
+  <div class="pro-skills-header">
+    <span class="skill-icon-emoji">📄</span>
+    <span class="skill-title">Compétences professionnelles BUT</span>
+  </div>
+  <div class="pro-skill-card">
+    <div class="pro-skill-card-top">
+      <span class="ue-badge">UE1</span>
+      <span class="pro-skill-card-title">Analyser les processus de l'organisation</span>
+    </div>
+    <p class="pro-skill-card-desc">Analyser la situation économique et financière d'une organisation à partir de ses documents comptables.</p>
+    <p class="pro-skill-card-example">→ Exploitation du bilan et du compte de résultat : rentabilité, structure financière, liquidité et diagnostic argumenté.</p>
+  </div>
+  <div class="pro-skill-card">
+    <div class="pro-skill-card-top">
+      <span class="ue-badge">UE2</span>
+      <span class="pro-skill-card-title">Aider à la prise de décision</span>
+    </div>
+    <p class="pro-skill-card-desc">Construire des outils d'analyse et de prévision à partir de données financières.</p>
+    <p class="pro-skill-card-example">→ Modèle DCF sur Excel : flux futurs, hypothèses de croissance, taux d'actualisation, valeur théorique d'entreprise.</p>
+  </div>
+  <div class="pro-skill-card">
+    <div class="pro-skill-card-top">
+      <span class="ue-badge">UE5</span>
+      <span class="pro-skill-card-title">Produire et analyser l'information financière</span>
+    </div>
+    <p class="pro-skill-card-desc">Produire et exploiter des informations comptables fiables pour réaliser un diagnostic financier.</p>
+    <p class="pro-skill-card-example">→ Enregistrement d'opérations, élaboration du bilan et compte de résultat, analyse des équilibres financiers.</p>
+  </div>
+</div>
     </div>
   </section>
   <section id="experience">
